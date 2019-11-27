@@ -80,7 +80,6 @@ void howtouse(){
                 return;
         while(use != 'u')
         {
-                printf("u를 다시 입력하면 체스 게임 화면으로 돌아갑니다\n");
                 use = getch();
                 if(use == 'u')
                         return;
