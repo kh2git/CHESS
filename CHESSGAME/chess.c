@@ -45,7 +45,7 @@ int main(){
       case 1:
          while(1){
 	  system("clear");
-          print_chess();  
+          print_chess();
          }
          break;
       case 2:
