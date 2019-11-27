@@ -34,13 +34,16 @@ char* black_loc = "B1";  // 단순 배열 초기화
 char *w_now, *b_now, *w_input, *b_input;  // 현재 흑백말 위치와 이동하고 싶은 말의 위치
 
 int main(){
+   
+   int keyCode;
+   while(1){
    system("clear");
    menuDraw();
-   int keyCode;
    scanf("%d",&keyCode);
    switch(keyCode){
       case 1:
          while(1){
+	  system("clear");
           print_chess();  
          }
          break;
@@ -50,6 +53,7 @@ int main(){
       case 3:
          exit(0);
          break;
+   }
    }
    
    return 0;
