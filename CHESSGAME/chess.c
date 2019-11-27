@@ -39,6 +39,7 @@ int main(){
    while(1){
    system("clear");
    menuDraw();
+   printf("메뉴를 선택하세요 : ");
    scanf("%d",&keyCode);
    switch(keyCode){
       case 1:
