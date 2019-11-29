@@ -241,31 +241,30 @@ void print_chess() {
 
 void Dis()                      //입력한 자리에 위치한 말 판별
 {
-        scanf("%s", &chessboard[loc_x][loc_y]);
-        if strcmp(chessboard[loc_x][loc_y], R)
-        printf("%d", R);
-        else if strcmp(chessboard[loc_x][loc_y], N)
-        printf("%d", N);
-        else if strcmp(chessboard[loc_x][loc_y], B)
-        printf("%d", B);
-        else if strcmp(chessboard[loc_x][loc_y], Q)
-        printf("%d", Q);
-        else if strcmp(chessboard[loc_x][loc_y], K)
-        printf("%d", K);
-        else if strcmp(chessboard[loc_x][loc_y], P)
-        printf("%d", P);
-        else if strcmp(chessboard[loc_x][loc_y], r)
-        printf("%d", r);
-        else if strcmp(chessboard[loc_x][loc_y], n)
-        printf("%d", n);
-        else if strcmp(chessboard[loc_x][loc_y], b)
-        printf("%d", b);
-        else if strcmp(chessboard[loc_x][loc_y], q)
-        printf("%d", q);
-	else if strcmp(chessboard[loc_x][loc_y], k)
-        printf("%d", k);
-        else if strcmp(chessboard[loc_x][loc_y], p)
-        printf("%d", p);
+        if strcmp(chessboard[loc_x][loc_y], "R")
+        Rook();
+        else if strcmp(chessboard[loc_x][loc_y], "N")
+        Knight();
+        else if strcmp(chessboard[loc_x][loc_y], "B")
+        Bishop();
+        else if strcmp(chessboard[loc_x][loc_y], "Q")
+        Queen();
+        else if strcmp(chessboard[loc_x][loc_y], "K")
+        King();
+        else if strcmp(chessboard[loc_x][loc_y], "P")
+        Pawn();
+        else if strcmp(chessboard[loc_x][loc_y], "r")
+        rook();
+        else if strcmp(chessboard[loc_x][loc_y], "n")
+        knight();
+        else if strcmp(chessboard[loc_x][loc_y], "b")
+        bishop();
+        else if strcmp(chessboard[loc_x][loc_y], "q")
+        queen();
+	else if strcmp(chessboard[loc_x][loc_y], "k")
+        king();
+        else if strcmp(chessboard[loc_x][loc_y], "p")
+        pawn();
 }
 
 void Mov()   //말의 움직임 함수를 받는 함수
