@@ -31,13 +31,13 @@ const char ind[8][8][3]=
                         {"H1","H2","H3","H4","H5","H6","H7","H8"},
                         };
 
-char King[1][3] = {"k","K"}; // 킹 문자열
-char Queen[1][3] = {"q","Q"}; // 퀸 문자열
-char Bishop[1][3] = {"b","B"};  // 비숍 문자열
-char Knight[1][3] = {"n", "N"};  //나이트 문자열
-char Rook[1][3] = {"r", "R"};  //룩 문자열
-char pawn[1][3] = {"p", "P"};  //폰 문자열
-char Empty[3] = "."; //비어있는 곳을 나타내는 문자열
+char King[2][2] = {"k","K"}; // 킹 문자열
+char Queen[2][2] = {"q","Q"}; // 퀸 문자열
+char Bishop[2][2] = {"b","B"};  // 비숍 문자열
+char Knight[2][2] = {"n", "N"};  //나이트 문자열
+char Rook[2][2] = {"r", "R"};  //룩 문자열
+char pawn[2][2] = {"p", "P"};  //폰 문자열
+char Empty[2] = "."; //비어있는 곳을 나타내는 문자열
 
 
 char *p_before,*p_after;  // 현재 흑백말 위치와 이동하고 싶은 말의 위치
