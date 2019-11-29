@@ -154,29 +154,29 @@ void print_chess() {
 
 void Dis()                      //입력한 자리에 위치한 말 판별
 {
-        if strcmp(chessboard[loc_x][loc_y], "R")
+        if (strcmp(chessboard[loc_x][loc_y], "R")==0)
         Rook();
-	else if strcmp(chessboard[loc_x][loc_y], "N")
+	else if (strcmp(chessboard[loc_x][loc_y], "N")==0)
         Knight();
-        else if strcmp(chessboard[loc_x][loc_y], "B")
+        else if (strcmp(chessboard[loc_x][loc_y], "B")==0)
         Bishop();
-        else if strcmp(chessboard[loc_x][loc_y], "Q")
+        else if (strcmp(chessboard[loc_x][loc_y], "Q")==0)
         Queen();
-        else if strcmp(chessboard[loc_x][loc_y], "K")
+        else if (strcmp(chessboard[loc_x][loc_y], "K")==0)
         King();
-        else if strcmp(chessboard[loc_x][loc_y], "P")
+        else if (strcmp(chessboard[loc_x][loc_y], "P")==0)
         Pawn();
-        else if strcmp(chessboard[loc_x][loc_y], "r")
+        else if (strcmp(chessboard[loc_x][loc_y], "r")==0)
         rook();
-        else if strcmp(chessboard[loc_x][loc_y], "n")
+        else if (strcmp(chessboard[loc_x][loc_y], "n")==0)
         knight();
-        else if strcmp(chessboard[loc_x][loc_y], "b")
+        else if (strcmp(chessboard[loc_x][loc_y], "b")==0)
         bishop();
-        else if strcmp(chessboard[loc_x][loc_y], "q")
+        else if (strcmp(chessboard[loc_x][loc_y], "q")==0)
         queen();
-	else if strcmp(chessboard[loc_x][loc_y], "k")
+	else if (strcmp(chessboard[loc_x][loc_y], "k")==0)
         king();
-        else if strcmp(chessboard[loc_x][loc_y], "p")
+        else if (strcmp(chessboard[loc_x][loc_y], "p")==0)
         pawn();
 	else  //잘못 선택하였을 때
 	{
