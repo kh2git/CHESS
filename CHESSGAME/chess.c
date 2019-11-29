@@ -29,6 +29,15 @@ const char ind[8][8][3]=
                         {"G1","G2","G3","G4","G5","G6","G7","G8"},
                         {"H1","H2","H3","H4","H5","H6","H7","H8"},
                         };
+
+char King[1][3] = {"k","K"};
+char Queen[1][3] = {"q","Q"};
+char Bishop[1][3] = {"b","B"};
+char Knight[1][3] = {"n", "N"};
+char Rook[1][3] = {"r", "R"};
+char pawn[1][3] = {"p", "P"};
+char Empty[3] = ".";
+
 char* white_loc = "W1";  // 단순 배열 초기화
 char* black_loc = "B1";  // 단순 배열 초기화
 char *w_now, *b_now, *w_input, *b_input;  // 현재 흑백말 위치와 이동하고 싶은 말의 위치
@@ -258,3 +267,338 @@ void Dis()                      //입력한 자리에 위치한 말 판별
         else if strcmp(chessboard[loc_x][loc_y], p)
         printf("%d", p);
 }
+
+void Mov()   //움직이자
+{
+        if(strcmp(chessboard[loc_x][loc_y],King[P1-1]==0)
+        {
+        printf("움직일 행을 택하시오 : ");
+        scanf("%d", &d);
+        printf("열을 택하시오 : ");
+        scanf("%d", &f);
+        if(1<=d && d<=8)&&(1<=f && f<=8))
+        King();
+        else
+        {
+                system("clear")
+        printf("다시 입력해주세요");
+
+        switch(p1)
+        {
+        case 1:
+                {
+                        p1++;
+                        p2--;
+                }
+                        break;
+        case 2:
+                {
+                        p1--;
+                        p2++;
+                }
+                        break;
+
+                }
+        }
+}
+
+else
+{
+system("clear");
+printf("다시 입력해주세요");
+
+switch(p1)
+        {
+        case 1:
+                {
+                        p1++;
+                        p2--;
+                }
+                        break;
+        case 2:
+                {
+                        p1--;
+                        p2++;
+                }
+                        break;
+
+                }
+}
+	   
+{
+        else if(strcmp(chessboard[loc_x][loc_y],Queen[P1-1]==0)
+        {
+        printf("움직일 행을 택하시오 : ");
+        scanf("%d", &d);
+        printf("열을 택하시오 : ");
+        scanf("%d", &f);
+        if(1<=d && d<=8)&&(1<=f && f<=8))
+        Queen();
+        else
+        {
+                system("clear")
+        printf("다시 입력해주세요");
+
+        switch(p1)
+        {
+        case 1:
+                {
+                        p1++;
+                        p2--;
+                }
+                        break;
+        case 2:
+                {
+                        p1--;
+                        p2++;
+                }
+                        break;
+
+                }
+        }
+}
+
+else
+{
+system("clear");
+printf("다시 입력해주세요");
+
+switch(p1)
+        {
+        case 1:
+                {
+                        p1++;
+                        p2--;
+                }
+                        break;
+        case 2:
+                {
+                        p1--;
+                        p2++;
+                }
+                        break;
+
+                }
+	{
+        else if(strcmp(chessboard[loc_x][loc_y],Bishop[P1-1]==0)
+        {
+        printf("움직일 행을 택하시오 : ");
+        scanf("%d", &d);
+        printf("열을 택하시오 : ");
+        scanf("%d", &f);
+        if(1<=d && d<=8)&&(1<=f && f<=8))
+        Bishop();
+        else
+        {
+                system("clear")
+        printf("다시 입력해주세요");
+
+        switch(p1)
+        {
+        case 1:
+                {
+                        p1++;
+                        p2--;
+                }
+                        break;
+        case 2:
+                {
+                        p1--;
+                        p2++;
+                }
+                        break;
+
+                }
+        }
+}
+
+else
+{
+system("clear");
+printf("다시 입력해주세요");
+
+switch(p1)
+        {
+        case 1:
+                {
+                        p1++;
+                        p2--;
+                }
+                        break;
+        case 2:
+                {
+                        p1--;
+                        p2++;
+                }
+                        break;
+
+                }
+
+{
+        else if(strcmp(chessboard[loc_x][loc_y],Knight[P1-1]==0)
+        {
+        printf("움직일 행을 택하시오 : ");
+        scanf("%d", &d);
+        printf("열을 택하시오 : ");
+        scanf("%d", &f);
+        if(1<=d && d<=8)&&(1<=f && f<=8))
+        Knight();
+        else
+        {
+                system("clear")
+        printf("다시 입력해주세요");
+
+        switch(p1)
+        {
+        case 1:
+                {
+                        p1++;
+                        p2--;
+                }
+                        break;
+        case 2:
+                {
+                        p1--;
+                        p2++;
+                }
+                        break;
+
+                }
+        }
+}
+
+else
+{
+system("clear");
+printf("다시 입력해주세요");
+
+switch(p1)
+        {
+        case 1:
+                {
+                        p1++;
+                        p2--;
+                }
+                        break;
+        case 2:
+                {
+                        p1--;
+                        p2++;
+                }
+                        break;
+
+                }
+
+{
+        else if(strcmp(chessboard[loc_x][loc_y],Rook[P1-1]==0)
+        {
+        printf("움직일 행을 택하시오 : ");
+        scanf("%d", &d);
+        printf("열을 택하시오 : ");
+        scanf("%d", &f);
+        if(1<=d && d<=8)&&(1<=f && f<=8))
+        Rook();
+        else
+        {
+                system("clear")
+        printf("다시 입력해주세요");
+
+        switch(p1)
+        {
+        case 1:
+                {
+                        p1++;
+                        p2--;
+                }
+                        break;
+        case 2:
+                {
+                        p1--;
+                        p2++;
+                }
+                        break;
+
+                }
+        }
+}
+
+else
+{
+system("clear");
+printf("다시 입력해주세요");
+
+switch(p1)
+        {
+        case 1:
+                {
+                        p1++;
+                        p2--;
+                }
+                        break;
+        case 2:
+                {
+                        p1--;
+                        p2++;
+                }
+                        break;
+
+                }
+
+{
+        else if(strcmp(chessboard[loc_x][loc_y],Pawn[P1-1]==0)
+        {
+        printf("움직일 행을 택하시오 : ");
+        scanf("%d", &d);
+        printf("열을 택하시오 : ");
+        scanf("%d", &f);
+        if(1<=d && d<=8)&&(1<=f && f<=8))
+        Pawn();
+        else
+        {
+                system("clear")
+        printf("다시 입력해주세요");
+
+        switch(p1)
+        {
+        case 1:
+                {
+                        p1++;
+                        p2--;
+                }
+                        break;
+        case 2:
+                {
+                        p1--;
+                        p2++;
+                }
+                        break;
+
+                }
+        }
+}
+
+else
+{
+system("clear");
+printf("다시 입력해주세요");
+
+switch(p1)
+        {
+        case 1:
+                {
+                        p1++;
+                        p2--;
+                }
+                        break;
+        case 2:
+                {
+                        p1--;
+                        p2++;
+                }
+                        break;
+
+                }
+	
+	
+}
+		   
