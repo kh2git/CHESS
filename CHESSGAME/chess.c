@@ -148,3 +148,32 @@ void print_chess() {
     }
     printf("\t   -------------------------------------------------\n");
 }
+
+void Dis()                      //입력한 자리에 위치한 말 판별
+{
+        scanf("%s", &chesspiece[loc_x][loc_y]);
+        if strcmp(chesspiece[loc_x][loc_y], R)
+        printf("%d", R);
+        else if strcmp(chesspiece[loc_x][loc_y], N)
+        printf("%d", N);
+        else if strcmp(chesspiece[loc_x][loc_y], B)
+        printf("%d", B);
+        else if strcmp(chesspiece[loc_x][loc_y], Q)
+        printf("%d", Q);
+        else if strcmp(chesspiece[loc_x][loc_y], K)
+        printf("%d", K);
+        else if strcmp(chesspiece[loc_x][loc_y], P)
+        printf("%d", P);
+        else if strcmp(chesspiece[loc_x][loc_y], r)
+        printf("%d", r);
+        else if strcmp(chesspiece[loc_x][loc_y], n)
+        printf("%d", n);
+        else if strcmp(chesspiece[loc_x][loc_y], b)
+        printf("%d", b);
+        else if strcmp(chesspiece[loc_x][loc_y], q)
+        printf("%d", q);
+	else if strcmp(chesspiece[loc_x][loc_y], k)
+        printf("%d", k);
+        else if strcmp(chesspiece[loc_x][loc_y], p)
+        printf("%d", p);
+}
