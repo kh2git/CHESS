@@ -8,6 +8,20 @@ void titleDraw();
 void menuDraw();
 void howtouse();
 int getch();
+void Dis();
+void input_loc();
+void Rook();
+void Knight();
+void Bishop();
+void King();
+void Queen();
+void Pawn();
+void rook();
+void knight();
+void bishop();
+void king();
+void queen();
+void pawn();
 int p1 = 1, p2 = 1, x, y, m, n;
 char chessboard[8][8][2]= { 
                             {"R","N","B","Q","K","B","N","R"},
