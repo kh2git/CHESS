@@ -8,6 +8,7 @@ void titleDraw();
 void menuDraw();
 void howtouse();
 int getch();
+int p1 = 1, p2 = 1, x, y, m, n;
 char chessboard[8][8][2]= { 
                             {"R","N","B","Q","K","B","N","R"},
                             {"P","P","P","P","P","P","P","P"},
@@ -65,10 +66,10 @@ int main(){
          break;
    }
    }
-   
-int p1 = 1, p2 = 1, x, y, m, n;
 
-switch(p1) // 어떤 플레이어 차례인지
+Void player()  // 어떤 플레이어 차례인지
+
+switch(p1) 
     {
     case 1:
         {
@@ -86,7 +87,7 @@ switch(p1) // 어떤 플레이어 차례인지
 }
 
         printf(" %d의 차례입니다. 움직일 말을 선택해주세요.", player);
-	if((1<=x && x<=8)&&(1<=y && y<=8)) \옳은 자리 선택
+	if((1<=x && x<=8)&&(1<=y && y<=8)) //옳은 자리 선택
         Dis();
 
         else
@@ -243,7 +244,7 @@ void Dis()                      //입력한 자리에 위치한 말 판별
 {
         if strcmp(chessboard[loc_x][loc_y], "R")
         Rook();
-        else if strcmp(chessboard[loc_x][loc_y], "N")
+	else if strcmp(chessboard[loc_x][loc_y], "N")
         Knight();
         else if strcmp(chessboard[loc_x][loc_y], "B")
         Bishop();
@@ -265,90 +266,11 @@ void Dis()                      //입력한 자리에 위치한 말 판별
         king();
         else if strcmp(chessboard[loc_x][loc_y], "p")
         pawn();
-}
-
-void Mov()   //말의 움직임 함수를 받는 함수
-{
-        if(strcmp(chessboard[loc_x][loc_y],King[P1-1]==0)  //King일 경우
-        {
-        printf("움직일 행을 택하시오 : ");
-        scanf("%d", &d);
-        printf("열을 택하시오 : ");
-        scanf("%d", &f);
-        if(1<=d && d<=8)&&(1<=f && f<=8))
-        King();
-        else
-        {
-                system("clear")
-        printf("다시 입력해주세요");
-
-        switch(p1)
-        {
-        case 1:
-                {
-                        p1++;
-                        p2--;
-                }
-                        break;
-        case 2:
-                {
-                        p1--;
-                        p2++;
-                }
-                        break;
-
-                }
-        }
-}
-
-{
-        else if(strcmp(chessboard[loc_x][loc_y],Queen[P1-1]==0)  //퀸일 경우
-        {
-        printf("움직일 행을 택하시오 : ");
-        scanf("%d", &d);
-        printf("열을 택하시오 : ");
-        scanf("%d", &f);
-        if(1<=d && d<=8)&&(1<=f && f<=8))
-        Queen();
-        else
-        {
-                system("clear")
-        printf("다시 입력해주세요");
-
-        switch(p1)
-        {
-        case 1:
-                {
-                        p1++;
-                        p2--;
-                }
-                        break;
-        case 2:
-                {
-                        p1--;
-                        p2++;
-                }
-                        break;
-
-                }
-        }
-}
-
+	else  //잘못 선택하였을 때
 	{
-        else if(strcmp(chessboard[loc_x][loc_y],Bishop[P1-1]==0)  //비숍일 경우
-        {
-        printf("움직일 행을 택하시오 : ");
-        scanf("%d", &d);
-        printf("열을 택하시오 : ");
-        scanf("%d", &f);
-        if(1<=d && d<=8)&&(1<=f && f<=8))
-        Bishop();
-        else
-        {
-                system("clear")
-        printf("다시 입력해주세요");
+	printf("다시 입력해주세요");
 
-        switch(p1)
+	switch(p1)
         {
         case 1:
                 {
@@ -364,132 +286,10 @@ void Mov()   //말의 움직임 함수를 받는 함수
                         break;
 
                 }
-        }
+	}
 }
 
-
-{
-        else if(strcmp(chessboard[loc_x][loc_y],Knight[P1-1]==0)  //나이트일 경우
-        {
-        printf("움직일 행을 택하시오 : ");
-        scanf("%d", &d);
-        printf("열을 택하시오 : ");
-        scanf("%d", &f);
-        if(1<=d && d<=8)&&(1<=f && f<=8))
-        Knight();
-        else
-        {
-                system("clear")
-        printf("다시 입력해주세요");
-
-        switch(p1)
-        {
-        case 1:
-                {
-                        p1++;
-                        p2--;
-                }
-                        break;
-        case 2:
-                {
-                        p1--;
-                        p2++;
-                }
-                        break;
-
-                }
-        }
-}
+ 
 
 
-{
-        else if(strcmp(chessboard[loc_x][loc_y],Rook[P1-1]==0)  //룩일 경우
-        {
-        printf("움직일 행을 택하시오 : ");
-        scanf("%d", &d);
-        printf("열을 택하시오 : ");
-        scanf("%d", &f);
-        if(1<=d && d<=8)&&(1<=f && f<=8))
-        Rook();
-        else
-        {
-                system("clear")
-        printf("다시 입력해주세요");
-
-        switch(p1)
-        {
-        case 1:
-                {
-                        p1++;
-                        p2--;
-                }
-                        break;
-        case 2:
-                {
-                        p1--;
-                        p2++;
-                }
-                        break;
-
-                }
-        }
-}
-
-{
-        else if(strcmp(chessboard[loc_x][loc_y],Pawn[P1-1]==0)  //폰일 경우
-        {
-        printf("움직일 행을 택하시오 : ");
-        scanf("%d", &d);
-        printf("열을 택하시오 : ");
-        scanf("%d", &f);
-        if(1<=d && d<=8)&&(1<=f && f<=8))
-        Pawn();
-        else
-        {
-                system("clear")
-        printf("다시 입력해주세요");
-
-        switch(p1)
-        {
-        case 1:
-                {
-                        p1++;
-                        p2--;
-                }
-                        break;
-        case 2:
-                {
-                        p1--;
-                        p2++;
-                }
-                        break;
-
-                }
-        }
-}
-
-else  //잘못 선택하였을 때
-{
-system("clear");
-printf("다시 입력해주세요");
-
-switch(p1)
-        {
-        case 1:
-                {
-                        p1++;
-                        p2--;
-                }
-                        break;
-        case 2:
-                {
-                        p1--;
-                        p2++;
-                }
-                        break;
-
-                }
-	
-	
-}
 		   
