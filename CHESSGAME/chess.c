@@ -57,6 +57,87 @@ int main(){
    }
    }
    
+int p1 = 1, p2 = 1, x, y, m, n;
+
+switch(p1) // 어떤 플레이어 차례인지
+    {
+    case 1:
+        {
+            p1++; // 이전에 p1차례였을 경우, 다음은 p2 차례
+            p2--; // player 변수의 상대방이 되는 변수
+        }
+        break;
+
+    case 2:
+        {
+            p1--; // 이전에 p2차례였을 겨우, 다음은 p1 차례
+            p2++;
+        }
+        break;
+}
+
+        printf(" %d의 차례입니다. 움직일 말을 선택해주세요.", player);
+	if((1<=x && x<=8)&&(1<=y && y<=8)) \옳은 자리 선택
+        Dis();
+
+        else
+        {
+                system("");
+                printf("잘못된 선택입니다.");
+                switch(p1)
+        {
+        case 1:
+        {
+                p1++;
+                p2--;
+        }
+        break;
+
+        case 2:
+        {
+                p1--;
+                p2++;
+        }
+        break;
+        }
+}
+
+Victory = 0; // 승패 여부를 확인
+
+for(m=0; m<8; m++)
+{
+        for(n=0; n<8; n++)
+        {
+                if(strcmp(chessboard[m][n], king[p2-1]==0)
+                Victory=1;
+        }
+}
+
+if(Victory==0)
+{
+        printf("%d플레이어의 승리입니다!", p1);
+        }
+
+printf("체스게임 종료");
+
+Lost = 0;
+
+for(m=0; m<8; m++)
+{
+        for(n=0l n<8; n++)
+        {
+                if(strcmp(chessboard[m][n], king[p1-1]==0)
+                Lost = 1;
+        }
+}
+
+if(Lost==0)
+{
+        printf("%플레이어의 승리입니다 !", p2);
+        }
+
+printf("체스게임 종료");	
+	
    return 0;
 }
 
