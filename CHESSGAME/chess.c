@@ -39,9 +39,9 @@ char Rook[1][3] = {"r", "R"};  //룩 문자열
 char pawn[1][3] = {"p", "P"};  //폰 문자열
 char Empty[3] = "."; //비어있는 곳을 나타내는 문자열
 
-char* white_loc = "W1";  // 단순 배열 초기화
-char* black_loc = "B1";  // 단순 배열 초기화
-char *w_now, *b_now, *w_input, *b_input;  // 현재 흑백말 위치와 이동하고 싶은 말의 위치
+
+char *p_before,*p_after;  // 현재 흑백말 위치와 이동하고 싶은 말의 위치
+int before_x,before_y,after_x,after_y; //좌표를 숫자로 바꾼 변수
 
 int main(){
    
@@ -56,6 +56,7 @@ int main(){
          while(1){
 	  system("clear");
           print_chess();
+  	  input_loc();
          }
          break;
       case 2:
@@ -210,16 +211,9 @@ int getch(void)
         return ch;
 }
 
-void input_loc_w() {
-    printf("흰색 입력 : ");
+void input_loc() {
+    printf("좌표 입력 : ");
     scanf("%s %s", &w_now, &w_input);
-    white_loc = &w_input;
-}
-
-void input_loc_b(){
-    printf("검은색 입력 : ");
-    scanf("%s %s", &b_now, &b_input);
-    black_loc = &b_input;
 }
 
 void print_chess() {
