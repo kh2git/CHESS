@@ -67,7 +67,7 @@ int main(){
    }
    }
 
-Void player()  // 어떤 플레이어 차례인지
+void player()  // 어떤 플레이어 차례인지
 
 switch(p1) 
     {
