@@ -68,6 +68,31 @@ char E[2] = "."; //비어있는 곳을 나타내는 문자열
 char *p_before,*p_after;  // 현재 흑백말 위치와 이동하고 싶은 말의 위치
 int before_x,before_y,after_x,after_y; //좌표를 숫자로 바꾼 변수
 
+int main(){
+   int keyCode;
+   while(1){
+   system("clear");
+   menuDraw();
+   printf("메뉴를 선택하세요 : ");
+   scanf("%d",&keyCode);
+   switch(keyCode){
+      case 1:
+         while(1){
+	  system("clear");
+          print_chess();
+  	  input_loc();
+         }
+         break;
+      case 2:
+         howtouse();
+         break;
+      case 3:
+         exit(0);
+         break;
+   	}
+   }
+}
+
 void menuDraw(){
    printf("  1. 게임 시작\n");
    printf("  2. 조작 방법 안내\n");
@@ -126,6 +151,7 @@ void input_loc() {
 		printf("같은 좌표를 입력하셨습니다.\n");
 		input_loc();
 	}
+    Dis();
 }
 
 void print_chess() {
@@ -216,30 +242,7 @@ void astoin(){
 	}
 }
 
-int main(){
-   int keyCode;
-   while(1){
-   system("clear");
-   menuDraw();
-   printf("메뉴를 선택하세요 : ");
-   scanf("%d",&keyCode);
-   switch(keyCode){
-      case 1:
-         while(1){
-	  system("clear");
-          print_chess();
-  	  input_loc();
-         }
-         break;
-      case 2:
-         howtouse();
-         break;
-      case 3:
-         exit(0);
-         break;
-   	}
-   }
-}
+
 
 void king() {                      //흰색 왕 이동코드
 	if ( ((before_x - after_x <= 1) && (before_x - after_x >= -1)) && ((before_y - after_y <= 1) && (before_y - after_y)))             // 상하좌우 or 대각선 한칸
