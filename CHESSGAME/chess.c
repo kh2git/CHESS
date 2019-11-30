@@ -7,10 +7,11 @@ void print_chess();
 void titleDraw();
 void menuDraw();
 void howtouse();
+void whowin();
 int getch();
 void Dis();
 void input_loc();
-/*void Rook();
+void Rook();
 void Knight();
 void Bishop();
 void King();
@@ -21,7 +22,8 @@ void knight();
 void bishop();
 void king();
 void queen();
-void pawn();*/
+void pawn();
+
 int p1 = 1, p2 = 1, x, y, m, n;
 char chessboard[8][8][2]= { 
                             {"R","N","B","Q","K","B","N","R"},
@@ -166,7 +168,7 @@ void print_chess() {
     printf("\t   -------------------------------------------------\n");
 }
 
-void Dis()                      //입력한 자리에 위치한 말 판별
+/*void Dis()                      //입력한 자리에 위치한 말 판별
 {
         if (strcmp(chessboard[before_x][before_y], "R")==0)
         Rook();
@@ -192,29 +194,31 @@ void Dis()                      //입력한 자리에 위치한 말 판별
         king();
         else if (strcmp(chessboard[before_x][before_y], "p")==0)
         pawn();
-	else  //잘못 선택하였을 때
-	{
+	else  //잘못 선택하였을 
 	printf("다시 입력해주세요");
 
-	switch(p1)
-        {
-        case 1:
-                {
-                        p1++;
-                        p2--;
-                }
-                        break;
-        case 2:
-                {
-                        p1--;
-                        p2++;
-                }
-                        break;
+	
+}*/
 
-                }
+void whowin(){
+	int w_cnt,b_cnt;
+	for(int i=0;i<8;i++){
+		for(int j=0;j<8;j++){
+			if(strcmp(chessboard[i][j],"K")==0){
+				w_cnt++;
+			}
+			else if(strcmp(chessboard[i][j],"k")==0){
+				b_cnt++;
+			}
+		}
+	}
+	if(w_cnt==0){
+		printf("흑이 승리하였습니다!");
+	}
+	else if(b_cnt==0){
+		printf("백이 승리하였습니다!");
 	}
 }
-
  
 
 
