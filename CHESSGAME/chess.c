@@ -159,13 +159,13 @@ void print_chess() {
     for (int i = 0; i < 8; i++) {
         printf("\t   -------------------------------------------------\n");
         printf("\t   |#####|     |#####|     |#####|     |#####|     |\n");
-        printf("\t %d |# %s #|  %s  |# %s #|  %s  |# %s #|  %s  |# %s #|  %s  |\n", 8 - i, chessboard[i][0], chessboard[i][1], chessboard[i][2],
+        printf("\t %d |# %s #|  %s  |# %s #|  %s  |# %s #|  %s  |# %s #|  %s  |\n", i+1, chessboard[i][0], chessboard[i][1], chessboard[i][2],
             chessboard[i][3], chessboard[i][4], chessboard[i][5], chessboard[i][6], chessboard[i][7]);
         printf("\t   |#####|     |#####|     |#####|     |#####|     |\n");
         printf("\t   -------------------------------------------------\n");
         i++;
         printf("\t   |     |#####|     |#####|     |#####|     |#####|\n");
-        printf("\t %d |  %s  |# %s #|  %s  |# %s #|  %s  |# %s #|  %s  |# %s #|\n", 8 - i, chessboard[i][0], chessboard[i][1],
+        printf("\t %d |  %s  |# %s #|  %s  |# %s #|  %s  |# %s #|  %s  |# %s #|\n", i+1, chessboard[i][0], chessboard[i][1],
             chessboard[i][2], chessboard[i][3], chessboard[i][4], chessboard[i][5], chessboard[i][6], chessboard[i][7]);
         printf("\t   |     |#####|     |#####|     |#####|     |#####|\n");
     }
