@@ -123,7 +123,7 @@ void input_loc() {
     scanf("%s %s", &p_before, &p_after);
     astoin();
     if((before_x==after_x)&&(before_y==after_y)){
-		printf("같은 좌표를 입력하셨습니다.");
+		printf("같은 좌표를 입력하셨습니다.\n");
 		input_loc();
 	}
 }
