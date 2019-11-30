@@ -257,8 +257,12 @@ void king() {                      //흰색 왕 이동코드
 }
 
 void King() {                    // 검은색 왕 이동코드
-	if ( ((before_x - after_x <= 1) && (before_x - after_x >= -1)) && ((before_y - after_y <= 1) && (before_y - after_y)) )         // 상하좌우 or 대각선 한칸
+	if (((before_x - after_x <= 1) && (before_x - after_x >= -1)) && ((before_y - after_y <= 1) && (before_y - after_y >= -1))){       // 상하좌우 or 대각선 한칸
         		strcpy(chessboard[after_x][after_y], "K");
+			strcpy(chessboard[before_x][before_y], ".");
+        		blcwht[after_x][after_y]=1;
+        		blcwht[before_x][before_y]=0;
+	}
 	else
 		printf("이동이 불가합니다");
 }
@@ -280,15 +284,23 @@ void Queen() {                      //검은색 퀸 이동코드
 }
 
 void rook() {                           // 흰색 룩 이동코드
-	if ( ((before_x - after_x == 0) && (before_y - after_y != 0)) && ((before_x - after_x != 0) && (before_y - after_y != 0)) )                   // 상하좌우
+	if ( ((before_x - after_x == 0) && (before_y - after_y != 0)) || ((before_x - after_x != 0) && (before_y - after_y == 0)) ){                  // 상하좌우
 		strcpy(chessboard[after_x][after_y], "r");
+		strcpy(chessboard[before_x][before_y], ".");
+       		blcwht[after_x][after_y]=2;
+        	blcwht[before_x][before_y]=0;
+	}
 	else
 		printf("이동이 불가합니다");
 }
 
 void Rook() {                               //검은색 룩 이동코드
-	if ( ((before_x - after_x == 0) && (before_y - after_y != 0)) && ((before_x - after_x != 0) && (before_y - after_y != 0)) )                    // 상하좌우
+	if ( ((before_x - after_x == 0) && (before_y - after_y != 0)) || ((before_x - after_x != 0) && (before_y - after_y == 0)) ){                // 상하좌우
 		strcpy(chessboard[after_x][after_y], "R");
+		strcpy(chessboard[before_x][before_y], ".");
+       		blcwht[after_x][after_y]=1;
+        	blcwht[before_x][before_y]=0;
+	}
 	else
 		printf("이동이 불가합니다");
 }
