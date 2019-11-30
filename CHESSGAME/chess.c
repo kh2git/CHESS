@@ -8,6 +8,7 @@ void titleDraw();
 void menuDraw();
 void howtouse();
 void whowin();
+void astoin();
 int getch();
 void Dis();
 void input_loc();
@@ -35,8 +36,7 @@ char chessboard[8][8][2]= {
                             {"p","p","p","p","p","p","p","p"},
                             {"r","n","b","q","k","b","n","r"}
                             };
-const char ind[8][8][3]=
-                        {
+const char ind[8][8][3]={
                         {"A1","A2","A3","A4","A5","A6","A7","A8"},
                         {"B1","B2","B3","B4","B5","B6","B7","B8"},
                         {"C1","C2","C3","C4","C5","C6","C7","C8"},
@@ -44,9 +44,18 @@ const char ind[8][8][3]=
                         {"E1","E2","E3","E4","E5","E6","E7","E8"},
                         {"F1","F2","F3","F4","F5","F6","F7","F8"},
                         {"G1","G2","G3","G4","G5","G6","G7","G8"},
-                        {"H1","H2","H3","H4","H5","H6","H7","H8"},
+                        {"H1","H2","H3","H4","H5","H6","H7","H8"}
                         };
-
+int blcwht[8][8]={
+		  {1,1,1,1,1,1,1,1},
+		  {1,1,1,1,1,1,1,1},
+		  {0,0,0,0,0,0,0,0},
+		  {0,0,0,0,0,0,0,0},
+		  {0,0,0,0,0,0,0,0},
+		  {0,0,0,0,0,0,0,0},
+		  {2,2,2,2,2,2,2,2},
+		  {2,2,2,2,2,2,2,2}
+		 };
 char K[2][2] = {"k","K"}; // 킹 문자열
 char Q[2][2] = {"q","Q"}; // 퀸 문자열
 char B[2][2] = {"b","B"};  // 비숍 문자열
@@ -220,6 +229,24 @@ void whowin(){
 	}
 }
  
-
-
-		   
+void astoin(char a[],char b[]){
+	int i,j;
+	for(i=0;i<8;i++){
+		for(j=0;j<8;j++){
+			if(strcmp(ind[i][j],a)==0){
+				before_x=i;
+				before_y=j;
+			}
+		}
+	}
+	for(i=0;i<8;i++){
+		for(j=0;j<8;j++){
+			if(strcmp(ind[i][j],b)==0){
+				after_x=i;
+				after_y=j;
+			}
+		}
+	}
+}
+	
+	
