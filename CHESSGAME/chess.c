@@ -200,7 +200,7 @@ void astoin(){
 	int i,j;
 	for(i=0;i<8;i++){
 		for(j=0;j<8;j++){
-			if(strcmp(ind[i][j],p_before)==0){
+			if(strcmp(ind[i][j],&p_before)==0){
 				before_x=i;
 				before_y=j;
 			}
@@ -208,7 +208,7 @@ void astoin(){
 	}
 	for(i=0;i<8;i++){
 		for(j=0;j<8;j++){
-			if(strcmp(ind[i][j],p_after)==0){
+			if(strcmp(ind[i][j],&p_after)==0){
 				after_x=i;
 				after_y=j;
 			}
