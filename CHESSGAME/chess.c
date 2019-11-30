@@ -246,10 +246,14 @@ void astoin(){
 
 
 void king() {                      //흰색 왕 이동코드
-	if ( ((before_x - after_x <= 1) && (before_x - after_x >= -1)) && ((before_y - after_y <= 1) && (before_y - after_y)))             // 상하좌우 or 대각선 한칸
-        		strcpy(chessboard[after_x][after_y], "k");
-	else
-		printf("이동이 불가합니다");
+    if ( ((before_x - after_x <= 1) && (before_x - after_x >= -1)) && ((before_y - after_y <= 1) && (before_y - after_y >= -1))) {           // 상하좌우 or 대각선 한칸
+                strcpy(chessboard[after_x][after_y], "k");
+        strcpy(chessboard[before_x][before_y], ".");
+        blcwht[after_x][after_y]=2;
+        blcwht[before_x][before_y]=0;
+    }
+    else
+        printf("이동이 불가합니다");
 }
 
 void King() {                    // 검은색 왕 이동코드
