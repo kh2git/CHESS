@@ -268,17 +268,24 @@ void King() {                    // 검은색 왕 이동코드
 }
 
 void queen() {                     // 흰색 퀸 이동코드
-	if ( (((before_x - after_x == 0) && (before_y - after_y != 0)) && ((before_x - after_x != 0) && (before_y - after_y != 0))) && ( ((before_x - after_x != 0) && (before_y - after_y != 0)) && ( ((before_x - after_x) - (before_y - after_y) == 0))))                    // 상하좌우대각선
+	if ( (((before_x - after_x == 0) && (before_y - after_y != 0)) && ((before_x - after_x != 0) && (before_y - after_y != 0))) && ( ((before_x - after_x != 0) && (before_y - after_y != 0)) && ( ((before_x - after_x) - (before_y - after_y) == 0))))      {              // 상하좌우대각선
 		strcpy(chessboard[after_x][after_y], "q");
-
+		strcpy(chessboard[before_x][before_y], ".");
+        	blcwht[after_x][after_y]=2;
+        	blcwht[before_x][before_y]=0;
+	}
 	else
 		printf("이동이 불가합니다");
 }
 
 void Queen() {                      //검은색 퀸 이동코드
 	if ( (((before_x - after_x == 0) && (before_y - after_y != 0)) && ((before_x - after_x != 0) && (before_y - after_y != 0))) && ( ((before_x - after_x != 0) && (before_y - after_y != 0)) && ( ((before_x - after_x) - (before_y - after_y) == 0))))                  //상하좌우대각선 
+	{
 		strcpy(chessboard[after_x][after_y], "Q");
-
+		strcpy(chessboard[before_x][before_y], ".");
+        	blcwht[after_x][after_y]=1;
+        	blcwht[before_x][before_y]=0;
+	}
 	else
 		printf("이동이 불가합니다");
 }
@@ -307,29 +314,48 @@ void Rook() {                               //검은색 룩 이동코드
 
 void bishop() {                           // 흰색 비숍 이동코드
 	if ( ((before_x - after_x != 0) && (before_y - after_y != 0)) && ( ((before_x - after_x) - (before_y - after_y) == 0)) )                 // 대각선
+	{
 		strcpy(chessboard[after_x][after_y], "b");
+		strcpy(chessboard[before_x][before_y], ".");
+        	blcwht[after_x][after_y]=2;
+        	blcwht[before_x][before_y]=0;
+	}
 
 	else
 		printf("이동이 불가합니다");
 }
 
 void Bishop() {                      // 검은색 비숍 이동코드
-	if ( ((before_x - after_x != 0) && (before_y - after_y != 0)) && ( ((before_x - after_x) - (before_y - after_y) == 0)) )                // 대각선
+	if ( ((before_x - after_x != 0) && (before_y - after_y != 0)) && ( ((before_x - after_x) - (before_y - after_y) == 0)) )  {              // 대각선
 		strcpy(chessboard[after_x][after_y], "B");
+		strcpy(chessboard[before_x][before_y], ".");
+        	blcwht[after_x][after_y]=1;
+        	blcwht[before_x][before_y]=0;
+	}
 	else
 		printf("이동이 불가합니다");
 }
 
 void knight() {                                                                       // 흰색 나이트 이동코드  미완성
 	if ( (((before_x - after_x == -1) && (before_y - after_y == 2) || (before_x - after_x == 1) && (before_y - after_y == 2)) || ((before_x - after_x == -1) && (before_y - after_y == -2) || (before_x - after_x == 1) && (before_y - after_y == -2))) || (((before_x - after_x == -2) && (before_y - after_y == 1) || (before_x - after_x == 2) && (before_y - after_y == 1)) || ((before_x - after_x == -2) && (before_y - after_y == -1) || (before_x - after_x == 2) && (before_y - after_y == -1))) )                                                    
+	{
 		strcpy(chessboard[after_x][after_y], "n");
+		strcpy(chessboard[before_x][before_y], ".");
+        	blcwht[after_x][after_y]=2;
+        	blcwht[before_x][before_y]=0;
+	}
 	else
 		printf("이동이 불가합니다");
 }
  
 void Knight() {                                                                       // 검은색 나이트 이동코드 미완성
 	if ( (((before_x - after_x == -1) && (before_y - after_y == 2) || (before_x - after_x == 1) && (before_y - after_y == 2)) || ((before_x - after_x == -1) && (before_y - after_y == -2) || (before_x - after_x == 1) && (before_y - after_y == -2))) || (((before_x - after_x == -2) && (before_y - after_y == 1) || (before_x - after_x == 2) && (before_y - after_y == 1)) || ((before_x - after_x == -2) && (before_y - after_y == -1) || (before_x - after_x == 2) && (before_y - after_y == -1))) )
+	{
 		strcpy(chessboard[after_x][after_y], "N");
+		strcpy(chessboard[before_x][before_y], ".");
+        	blcwht[after_x][after_y]=1;
+        	blcwht[before_x][before_y]=0;
+	}
 	else
 		printf("이동이 불가합니다");
 }
@@ -338,14 +364,24 @@ void pawn() {                  // 백색 폰 이동코드
 	if (before_y == 2) {                                                     // 처음 폰을 움직일때 (흰 말)
 		if ( (strcmp(chessboard[before_x-1][before_y+1], "P") ==0) || (strcmp(chessboard[before_x+1][before_y+1], "P") == 0) || (strcmp(chessboard[before_x-1][before_y], "P") == 0) || (strcmp(chessboard[before_x+1][before_y], "P") == 0)) {             // 공격하는 상황이면 (앙파상 포함)
 			if (((before_x - after_x == -1) || (before_x - after_x == 1)) && (before_y - after_y == -1))               // 대각선으로 한칸 (흰 말) 
+			{
 				strcpy(chessboard[after_x][after_y], "p");
+				strcpy(chessboard[before_x][before_y], ".");
+        			blcwht[after_x][after_y]=2;
+        			blcwht[before_x][before_y]=0;
+	}
 			else
 				printf("이동할 수 없습니다");
 		}
 
 		else {                   // 공격하지 않는 상황이면	
 			if(((before_y - after_y == -2) || (before_y - after_y == -1)) && (before_x - after_y == 0))   // 위로 두칸 or 한칸
+			{
 				strcpy(chessboard[after_x][after_y], "p");
+				strcpy(chessboard[before_x][before_y], ".");
+        			blcwht[after_x][after_y]=2;
+        			blcwht[before_x][before_y]=0;
+	}
 			else
 				printf("이동할 수 없습니다");
 		}
@@ -354,13 +390,23 @@ void pawn() {                  // 백색 폰 이동코드
 	else {                                                              // 폰을 처음 움직이는게 아니라면 (흰 말)
 		if ( (strcmp(chessboard[before_x-1][before_y+1], "P") ==0) || (strcmp(chessboard[before_x+1][before_y+1], "P") == 0) || (strcmp(chessboard[before_x-1][before_y], "P") == 0) || (strcmp(chessboard[before_x+1][before_y], "P") == 0))   {           // 공격하는 상황이면 (앙파상 포함)
 			if (((before_x - after_x == -1) || (before_x - after_x ==1)) && (before_y - after_y == -1))               // 대각선으로 한칸 (흰 말) 
+			{
 				strcpy(chessboard[after_x][after_y], "p");
+				strcpy(chessboard[before_x][before_y], ".");
+        			blcwht[after_x][after_y]=2;
+        			blcwht[before_x][before_y]=0;
+	}
 			else
 				printf("이동할 수 없습니다");
 		}
 		else {             // 공격하지 않는 상황이면
 			if ((before_x - after_x == 0) && (before_y - after_y ==-1))          // 위로 한칸
+			{
 				strcpy(chessboard[after_x][after_y], "p");
+				strcpy(chessboard[before_x][before_y], ".");
+        			blcwht[after_x][after_y]=2;
+        			blcwht[before_x][before_y]=0;
+	}
 			else
 				printf("이동할 수 없습니다");
 		}
@@ -371,14 +417,24 @@ void Pawn() {                 // 검은색 폰 이동코드
 	if (before_y == 7) {                                                     // 처음 폰을 움직일때 (검은 말)
 		 if ( (strcmp(chessboard[before_x-1][before_y-1], "p") ==0) || (strcmp(chessboard[before_x+1][before_y-1], "p") == 0) || (strcmp(chessboard[before_x-1][before_y], "p") == 0) || (strcmp(chessboard[before_x+1][before_y], "p") == 0)) {                 // 공격하는 상황이면 (앙파상 포함)
 			if (((before_x - after_x == -1) || (before_x - after_x == 1)) && (before_y - after_y == 1))               // 대각선으로 한칸 (검은 말)       
+			{
 				strcpy(chessboard[after_x][after_y], "P");
+			 	strcpy(chessboard[before_x][before_y], ".");
+        			blcwht[after_x][after_y]=1;
+        			blcwht[before_x][before_y]=0;
+	}
 			else
 				printf("이동할 수 없습니다");
 		}
 
 		else {                   // 공격하지 않는 상황이면	
 			if(((before_y - after_y == 2) || (before_y - after_y == 1)) && (before_x - before_y == 0))   // 아래로 두칸 or 한칸
+			{
 				strcpy(chessboard[after_x][after_y], "P");
+				strcpy(chessboard[before_x][before_y], ".");
+        			blcwht[after_x][after_y]=1;
+        			blcwht[before_x][before_y]=0;
+	}
 			else
 				printf("이동할 수 없습니다");
 		}
@@ -387,13 +443,23 @@ void Pawn() {                 // 검은색 폰 이동코드
 	else {                                                              // 폰을 처음 움직이는게 아니라면 (검 말)
 		if ( (strcmp(chessboard[before_x-1][before_y-1], "p") ==0) || (strcmp(chessboard[before_x+1][before_y-1], "p") == 0) || (strcmp(chessboard[before_x-1][before_y], "p") == 0) || (strcmp(chessboard[before_x+1][before_y], "p") == 0))   {                 // 공격하는 상황이면 (앙파상 포함)
 			if (((before_x - after_x == -1) || (before_x - after_x == 1)) && (before_y - after_y == -1))               // 대각선으로 한칸 (검은 말) 
+			{
 				strcpy(chessboard[after_x][after_y], "P");
+				strcpy(chessboard[before_x][before_y], ".");
+        			blcwht[after_x][after_y]=1;
+        			blcwht[before_x][before_y]=0;
+	}
 			else
 				printf("이동할 수 없습니다");
 		}
 		else {             // 공격하지 않는 상황이면
 			if ((before_x - after_x == 0) && (before_y - after_y == 1))          // 아래로 한칸
+			{
 				strcpy(chessboard[after_x][after_y], "P");
+				strcpy(chessboard[before_x][before_y], ".");
+        			blcwht[after_x][after_y]=1;
+        			blcwht[before_x][before_y]=0;
+	}
 			else
 				printf("이동할 수 없습니다");
 		}
