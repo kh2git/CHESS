@@ -10,6 +10,7 @@ void howtouse();
 void whowin();
 void astoin();
 int getch();
+void coordisnotsame();
 void Dis();
 void input_loc();
 void Rook();
@@ -147,6 +148,7 @@ int getch(void)
 void input_loc() {
     printf("좌표 입력 : ");
     scanf("%s %s", &p_before, &p_after);
+    coordisnotsame();
 }
 
 void print_chess() {
@@ -238,5 +240,10 @@ void astoin(char a[],char b[]){
 		}
 	}
 }
-	
-	
+
+void coordisnotsame(){
+	if((before_x==after_x)&&(before_y==after_y)){
+		printf("같은 좌표를 입력하셨습니다.");
+		input_loc();
+	}
+}
