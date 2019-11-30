@@ -148,6 +148,7 @@ int getch(void)
 void input_loc() {
     printf("좌표 입력 : ");
     scanf("%s %s", &p_before, &p_after);
+    astoin();
     coordisnotsame();
 }
 
@@ -169,7 +170,7 @@ void print_chess() {
     printf("\t   -------------------------------------------------\n");
 }
 
-void Dis()                      //입력한 자리에 위치한 말 판별
+/*void Dis()                      //입력한 자리에 위치한 말 판별
 {
         if (strcmp(chessboard[before_x][before_y], "R")==0)
         Rook();
@@ -196,10 +197,8 @@ void Dis()                      //입력한 자리에 위치한 말 판별
         else if (strcmp(chessboard[before_x][before_y], "p")==0)
         pawn();
 	else  //잘못 선택하였을 
-	printf("다시 입력해주세요");
-
-	
-}
+	printf("다시 입력해주세요");	
+}*/
 
 void whowin(){
 	int w_cnt,b_cnt;
@@ -221,11 +220,11 @@ void whowin(){
 	}
 }
  
-void astoin(char a[],char b[]){
+void astoin(){
 	int i,j;
 	for(i=0;i<8;i++){
 		for(j=0;j<8;j++){
-			if(strcmp(ind[i][j],a)==0){
+			if(strcmp(ind[i][j],p_before)==0){
 				before_x=i;
 				before_y=j;
 			}
@@ -233,7 +232,7 @@ void astoin(char a[],char b[]){
 	}
 	for(i=0;i<8;i++){
 		for(j=0;j<8;j++){
-			if(strcmp(ind[i][j],b)==0){
+			if(strcmp(ind[i][j],p_after)==0){
 				after_x=i;
 				after_y=j;
 			}
