@@ -64,6 +64,7 @@ char R[2][2] = {"r", "R"};  //룩 문자열
 char P[2][2] = {"p", "P"};  //폰 문자열
 char E[2] = "."; //비어있는 곳을 나타내는 문자열
 
+char HEIGTH[8] = {A, B, C, D, E, F, G, H};
 
 char *p_before,*p_after;  // 현재 흑백말 위치와 이동하고 싶은 말의 위치
 int before_x,before_y,after_x,after_y; //좌표를 숫자로 바꾼 변수
@@ -155,17 +156,17 @@ void input_loc() {
 }
 
 void print_chess() {
-    printf("\t      A     B     C     D     E     F     G     H\n");
+    printf("\t      1     2     3     4     5     6     7     8\n");
     for (int i = 0; i < 8; i++) {
         printf("\t   -------------------------------------------------\n");
         printf("\t   |#####|     |#####|     |#####|     |#####|     |\n");
-        printf("\t %d |# %s #|  %s  |# %s #|  %s  |# %s #|  %s  |# %s #|  %s  |\n", i+1, chessboard[i][0], chessboard[i][1], chessboard[i][2],
+        printf("\t %d |# %s #|  %s  |# %s #|  %s  |# %s #|  %s  |# %s #|  %s  |\n", HEIGTH[i], chessboard[i][0], chessboard[i][1], chessboard[i][2],
             chessboard[i][3], chessboard[i][4], chessboard[i][5], chessboard[i][6], chessboard[i][7]);
         printf("\t   |#####|     |#####|     |#####|     |#####|     |\n");
         printf("\t   -------------------------------------------------\n");
         i++;
         printf("\t   |     |#####|     |#####|     |#####|     |#####|\n");
-        printf("\t %d |  %s  |# %s #|  %s  |# %s #|  %s  |# %s #|  %s  |# %s #|\n", i+1, chessboard[i][0], chessboard[i][1],
+        printf("\t %d |  %s  |# %s #|  %s  |# %s #|  %s  |# %s #|  %s  |# %s #|\n", HEIGTH[i], chessboard[i][0], chessboard[i][1],
             chessboard[i][2], chessboard[i][3], chessboard[i][4], chessboard[i][5], chessboard[i][6], chessboard[i][7]);
         printf("\t   |     |#####|     |#####|     |#####|     |#####|\n");
     }
