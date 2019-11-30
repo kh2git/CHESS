@@ -69,7 +69,6 @@ char *p_before,*p_after;  // 현재 흑백말 위치와 이동하고 싶은 말�
 int before_x,before_y,after_x,after_y; //좌표를 숫자로 바꾼 변수
 
 int main(){
-   
    int keyCode;
    while(1){
    system("clear");
@@ -90,7 +89,7 @@ int main(){
       case 3:
          exit(0);
          break;
-   }
+   	}
    }
 }
 
@@ -107,8 +106,7 @@ void howtouse(){
         printf("기물이 위치한 칸을 먼저 입력하고 원하고자 하는 위치를 입력한다.\n");
         printf(" Ex - B1칸의 나이트를 A3칸에 옮기고 싶다.\n");
         printf(" B1 A3 입력 \n\n\n ");
-
-
+	
         printf("u를 다시 입력하면 체스 게임 화면으로 돌아갑니다\n");
         int use = getch();
         if(use == 'u')
@@ -126,17 +124,11 @@ int getch(void)
 
 {
         int ch;
-
-
         struct termios buf;
-
         struct termios save;
 
-
         tcgetattr(0, &save);
-
         buf = save;
-
 
         buf.c_lflag &= ~(ICANON | ECHO);
 
@@ -145,11 +137,9 @@ int getch(void)
         buf.c_cc[VTIME] = 0;
        tcsetattr(0, TCSAFLUSH, &buf);
 
-
         ch = getchar();
 
         tcsetattr(0, TCSAFLUSH, &save);
-
 
         return ch;
 }
@@ -177,7 +167,7 @@ void print_chess() {
     printf("\t   -------------------------------------------------\n");
 }
 
-/*void Dis()                      //입력한 자리에 위치한 말 판별
+void Dis()                      //입력한 자리에 위치한 말 판별
 {
         if (strcmp(chessboard[before_x][before_y], "R")==0)
         Rook();
@@ -207,7 +197,7 @@ void print_chess() {
 	printf("다시 입력해주세요");
 
 	
-}*/
+}
 
 void whowin(){
 	int w_cnt,b_cnt;
