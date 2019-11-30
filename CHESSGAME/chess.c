@@ -268,7 +268,7 @@ void King() {                    // 검은색 왕 이동코드
 }
 
 void queen() {                     // 흰색 퀸 이동코드
-	if ( (((before_x - after_x == 0) && (before_y - after_y != 0)) && ((before_x - after_x != 0) && (before_y - after_y != 0))) && ( ((before_x - after_x != 0) && (before_y - after_y != 0)) && ( ((before_x - after_x) - (before_y - after_y) == 0))))      {              // 상하좌우대각선
+	if ( (((before_x - after_x == 0) && (before_y - after_y != 0)) || ((before_x - after_x != 0) && (before_y - after_y != 0))) ||  ((before_x - after_x) + (before_y - after_y) == 0) || ( ((before_x - after_x) - (before_y - after_y) == 0))))      {              // 상하좌우대각선
 		strcpy(chessboard[after_x][after_y], "q");
 		strcpy(chessboard[before_x][before_y], ".");
         	blcwht[after_x][after_y]=2;
@@ -279,7 +279,7 @@ void queen() {                     // 흰색 퀸 이동코드
 }
 
 void Queen() {                      //검은색 퀸 이동코드
-	if ( (((before_x - after_x == 0) && (before_y - after_y != 0)) && ((before_x - after_x != 0) && (before_y - after_y != 0))) && ( ((before_x - after_x != 0) && (before_y - after_y != 0)) && ( ((before_x - after_x) - (before_y - after_y) == 0))))                  //상하좌우대각선 
+	if ( (((before_x - after_x == 0) && (before_y - after_y != 0)) || ((before_x - after_x != 0) && (before_y - after_y == 0))) ||  ((before_x - after_x) + (before_y - after_y) == 0) || ( ((before_x - after_x) - (before_y - after_y) == 0))))                  //상하좌우대각선 
 	{
 		strcpy(chessboard[after_x][after_y], "Q");
 		strcpy(chessboard[before_x][before_y], ".");
