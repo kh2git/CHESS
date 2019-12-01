@@ -200,7 +200,7 @@ void Dis()                      //입력한 자리에 위치한 말 판별
         else if (strcmp(chessboard[before_x][before_y], "p")==0)
         pawn();
 	else  //잘못 선택하였을 
-	printf("다시 입력해주세요");	
+	printf("다시 입력해주세요\n");	
 }
 
 void whowin(){
