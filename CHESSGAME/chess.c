@@ -28,6 +28,7 @@ void w_pro();
 void b_pro();
 	
 int p1 = 1, p2 = 1, x, y, m, n;
+char w, b;
 char chessboard[8][8][2]= { 
                             {"R","N","B","Q","K","B","N","R"},
                             {"P","P","P","P","P","P","P","P"},
@@ -489,8 +490,8 @@ void Pawn() 		// 검은색 폰 이동코드
 void w_pro() {
 	if (after_y == 0 || after_y == 7) {
 		printf("q, n, r, b 중 승격할 말을 선택 : ");
-		scanf(" %c", &a);
-		switch (a) {
+		scanf(" %c", &w);
+		switch (w) {
 		case 'q':
 			strcpy(chessboard[after_x][after_y], "q");
 			break;
@@ -513,14 +514,14 @@ void w_pro() {
 void b_pro() {
 	if (after_y == 0 || after_y == 7) {
 		printf("q, n, r, b 중 승격할 말을 선택 : ");
-		scanf(" %c", &a);
-		if (a == 'q')
+		scanf(" %c", &b);
+		if (b == 'q')
 			strcpy(chessboard[after_x][after_y], "Q");
-		else if (a == 'n')
+		else if (b == 'n')
 			strcpy(chessboard[after_x][after_y], "N");
-		else if (a == 'r')
+		else if (b == 'r')
 			strcpy(chessboard[after_x][after_y], "R");
-		else if (a == 'b')
+		else if (b == 'b')
 			strcpy(chessboard[after_x][after_y], "B");
 		else {
 			printf("잘못된 입력입니다.\n");
