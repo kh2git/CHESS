@@ -375,12 +375,14 @@ void pawn() 		// 흰색 폰 이동코드
         			blcwht[after_x][after_y]=2;
 	   		blcwht[before_x][before_y]=0;
 		}
-		else if ( (((after_y == before_y-1) && (after_y == before_y+1)) || (after_x == before_x-1)) ) 	// 공격하는 상황이면
+		else if ( (((after_y == before_y-1) && (after_y == before_y+1)) || (after_x == before_x-1)) )		// 공격하는 상황이면
 		{
-			strcpy(chessboard[after_x][after_y], "p");
-			strcpy(chessboard[before_x][before_y], ".");
-        			blcwht[after_x][after_y]=2;
-	   		blcwht[before_x][before_y]=0;
+			if (blcwht[after_x][after_y] == 1) {
+				strcpy(chessboard[after_x][after_y], "p");
+				strcpy(chessboard[before_x][before_y], ".");
+        				blcwht[after_x][after_y]=2;
+	   			blcwht[before_x][before_y]=0;
+			}
 		}
 		else
 			printf("이동할 수 없습니다. \n");
@@ -394,12 +396,14 @@ void pawn() 		// 흰색 폰 이동코드
         			blcwht[after_x][after_y]=2;
 	   		blcwht[before_x][before_y]=0;
 		}
-		else if ( (((after_y == before_y-1) && (after_y == before_y+1)) || (after_x == before_x-1)) )	//공격하는 상황이면
+		else if ( (((after_y == before_y-1) && (after_y == before_y+1)) || (after_x == before_x-1)) )		//공격하는 상황이면
 		{
-			strcpy(chessboard[after_x][after_y], "p");
-			strcpy(chessboard[before_x][before_y], ".");
-        			blcwht[after_x][after_y]=2;
-	   		blcwht[before_x][before_y]=0;
+			if (blcwht[after_x][after_y] == 1) {
+				strcpy(chessboard[after_x][after_y], "p");
+				strcpy(chessboard[before_x][before_y], ".");
+        				blcwht[after_x][after_y]=2;
+	   			blcwht[before_x][before_y]=0;
+			}
 		}
 		else
 			printf("이동할 수 없습니다. \n");
@@ -422,10 +426,12 @@ void Pawn() 		// 검은색 폰 이동코드
 		}
 		else if ( (((after_y == before_y-1) && (after_y == before_y+1)) || (after_x == before_x+1)) )		// 공격하는 상황이면
 		{
+			if (blcwht[after_x][after_y] == 2) {
 			strcpy(chessboard[after_x][after_y], "P");
 			strcpy(chessboard[before_x][before_y], ".");
         			blcwht[after_x][after_y]=1;
 	   		blcwht[before_x][before_y]=0;
+			}
 		}
 		else
 			printf("이동할 수 없습니다. \n");
@@ -439,12 +445,14 @@ void Pawn() 		// 검은색 폰 이동코드
         			blcwht[after_x][after_y]=1;
 	   		blcwht[before_x][before_y]=0;
 		}
-		else if ( (((after_y == before_y-1) && (after_y == before_y+1)) || (after_x == before_x+1)) ) // 공격하는 상황이면
+		else if ( (((after_y == before_y-1) && (after_y == before_y+1)) || (after_x == before_x+1)) )		//공격하는 상황이면
 		{
-			strcpy(chessboard[after_x][after_y], "P");
-			strcpy(chessboard[before_x][before_y], ".");
-        			blcwht[after_x][after_y]=1;
-	   		blcwht[before_x][before_y]=0;
+			if (blcwht[after_x][after_y] == 2) {
+				strcpy(chessboard[after_x][after_y], "P");
+				strcpy(chessboard[before_x][before_y], ".");
+        				blcwht[after_x][after_y]=1;
+	   			blcwht[before_x][before_y]=0;
+			}
 		}
 		
 		else
