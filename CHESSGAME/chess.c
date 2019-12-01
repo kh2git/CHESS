@@ -152,6 +152,10 @@ void input_loc() {
 		printf("잘못된 입력입니다.\n");
 		input_loc();
 	}
+    if(blcwht[before_x][before_y]==blcwht[after_x][after_y]){
+	    	printf("아군을 공격할 수 없습니다.\n");
+	    	input_loc();
+	}
     Dis();
 }
 
