@@ -24,7 +24,9 @@ void bishop();
 void king();
 void queen();
 void pawn();
-
+void w_pro();
+void b_pro();
+	
 int p1 = 1, p2 = 1, x, y, m, n;
 char chessboard[8][8][2]= { 
                             {"R","N","B","Q","K","B","N","R"},
@@ -481,5 +483,48 @@ void Pawn() 		// 검은색 폰 이동코드
 		
 		else
 			printf("이동할 수 없습니다. \n");
+	}
+}
+
+void w_pro() {
+	if (after_y == 0 || after_y == 7) {
+		printf("q, n, r, b 중 승격할 말을 선택 : ");
+		scanf(" %c", &a);
+		switch (a) {
+		case 'q':
+			strcpy(chessboard[after_x][after_y], "q");
+			break;
+		case 'n':
+			strcpy(chessboard[after_x][after_y], "n");
+			break;
+		case 'r':
+			strcpy(chessboard[after_x][after_y], "r");
+			break;
+		case 'b':
+			strcpy(chessboard[after_x][after_y], "b");
+			break;
+		default: 
+			printf("잘못된 입력입니다.\n");
+			w_pro();
+		}
+	}
+}
+
+void b_pro() {
+	if (after_y == 0 || after_y == 7) {
+		printf("q, n, r, b 중 승격할 말을 선택 : ");
+		scanf(" %c", &a);
+		if (a == 'q')
+			strcpy(chessboard[after_x][after_y], "Q");
+		else if (a == 'n')
+			strcpy(chessboard[after_x][after_y], "N");
+		else if (a == 'r')
+			strcpy(chessboard[after_x][after_y], "R");
+		else if (a == 'b')
+			strcpy(chessboard[after_x][after_y], "B");
+		else {
+			printf("잘못된 입력입니다.\n");
+			b_pro();
+		}
 	}
 }
