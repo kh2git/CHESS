@@ -362,7 +362,7 @@ void Knight() {                                                                 
 
 void pawn() {                  // 백색 폰 이동코드          
 	if (before_y == 2) {                                                     // 처음 폰을 움직일때 (흰 말)
-		if ( (strcmp(chessboard[before_x-1][before_y+1], "P") ==0) || (strcmp(chessboard[before_x+1][before_y+1], "P") == 0) || (strcmp(chessboard[before_x-1][before_y], "P") == 0) || (strcmp(chessboard[before_x+1][before_y], "P") == 0)) {             // 공격하는 상황이면 (앙파상 포함)
+		if ( (strcmp(chessboard[before_x-1][before_y+1], "p") ==0) || (strcmp(chessboard[before_x+1][before_y+1], "p") == 0) || (strcmp(chessboard[before_x-1][before_y], "p") == 0) || (strcmp(chessboard[before_x+1][before_y], "p") == 0)) {             // 공격하는 상황이면 (앙파상 포함)
 			if (((before_x - after_x == -1) || (before_x - after_x == 1)) && (before_y - after_y == -1))               // 대각선으로 한칸 (흰 말) 
 			{
 				strcpy(chessboard[after_x][after_y], "p");
@@ -388,7 +388,7 @@ void pawn() {                  // 백색 폰 이동코드
 	}
 
 	else {                                                              // 폰을 처음 움직이는게 아니라면 (흰 말)
-		if ( (strcmp(chessboard[before_x-1][before_y+1], "P") ==0) || (strcmp(chessboard[before_x+1][before_y+1], "P") == 0) || (strcmp(chessboard[before_x-1][before_y], "P") == 0) || (strcmp(chessboard[before_x+1][before_y], "P") == 0))   {           // 공격하는 상황이면 (앙파상 포함)
+		if ( (strcmp(chessboard[before_x-1][before_y+1], "p") ==0) || (strcmp(chessboard[before_x+1][before_y+1], "p") == 0) || (strcmp(chessboard[before_x-1][before_y], "p") == 0) || (strcmp(chessboard[before_x+1][before_y], "p") == 0))   {           // 공격하는 상황이면 (앙파상 포함)
 			if (((before_x - after_x == -1) || (before_x - after_x ==1)) && (before_y - after_y == -1))               // 대각선으로 한칸 (흰 말) 
 			{
 				strcpy(chessboard[after_x][after_y], "p");
@@ -415,7 +415,7 @@ void pawn() {                  // 백색 폰 이동코드
 
 void Pawn() {                 // 검은색 폰 이동코드
 	if (before_y == 7) {                                                     // 처음 폰을 움직일때 (검은 말)
-		 if ( (strcmp(chessboard[before_x-1][before_y-1], "p") ==0) || (strcmp(chessboard[before_x+1][before_y-1], "p") == 0) || (strcmp(chessboard[before_x-1][before_y], "p") == 0) || (strcmp(chessboard[before_x+1][before_y], "p") == 0)) {                 // 공격하는 상황이면 (앙파상 포함)
+		 if ( (strcmp(chessboard[before_x-1][before_y-1], "P") ==0) || (strcmp(chessboard[before_x+1][before_y-1], "P") == 0) || (strcmp(chessboard[before_x-1][before_y], "P") == 0) || (strcmp(chessboard[before_x+1][before_y], "P") == 0)) {                 // 공격하는 상황이면 (앙파상 포함)
 			if (((before_x - after_x == -1) || (before_x - after_x == 1)) && (before_y - after_y == 1))               // 대각선으로 한칸 (검은 말)       
 			{
 				strcpy(chessboard[after_x][after_y], "P");
@@ -441,7 +441,7 @@ void Pawn() {                 // 검은색 폰 이동코드
 	}
 
 	else {                                                              // 폰을 처음 움직이는게 아니라면 (검 말)
-		if ( (strcmp(chessboard[before_x-1][before_y-1], "p") ==0) || (strcmp(chessboard[before_x+1][before_y-1], "p") == 0) || (strcmp(chessboard[before_x-1][before_y], "p") == 0) || (strcmp(chessboard[before_x+1][before_y], "p") == 0))   {                 // 공격하는 상황이면 (앙파상 포함)
+		if ( (strcmp(chessboard[before_x-1][before_y-1], "P") ==0) || (strcmp(chessboard[before_x+1][before_y-1], "P") == 0) || (strcmp(chessboard[before_x-1][before_y], "P") == 0) || (strcmp(chessboard[before_x+1][before_y], "P") == 0))   {                 // 공격하는 상황이면 (앙파상 포함)
 			if (((before_x - after_x == -1) || (before_x - after_x == 1)) && (before_y - after_y == -1))               // 대각선으로 한칸 (검은 말) 
 			{
 				strcpy(chessboard[after_x][after_y], "P");
