@@ -375,7 +375,7 @@ void pawn() 		// 흰색 폰 이동코드
         			blcwht[after_x][after_y]=2;
 	   		blcwht[before_x][before_y]=0;
 		}
-		else if ( (((after_y == before_y-1) && (after_y == before_y+1)) || (after_x == before_x-1)) ) )		// 공격하는 상황이면
+		else if ( (((after_y == before_y-1) && (after_y == before_y+1)) || (after_x == before_x-1)) ) 	// 공격하는 상황이면
 		{
 			strcpy(chessboard[after_x][after_y], "p");
 			strcpy(chessboard[before_x][before_y], ".");
