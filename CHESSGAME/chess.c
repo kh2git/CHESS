@@ -85,6 +85,7 @@ int main(){
 	  system("clear");
           print_chess();
   	  input_loc();
+	  
          }
          break;
       case 2:
@@ -376,8 +377,9 @@ void pawn() 		// 흰색 폰 이동코드
 			if (blcwht[after_x][after_y] == 0) {
 				strcpy(chessboard[after_x][after_y], "p");
 				strcpy(chessboard[before_x][before_y], ".");
-        				blcwht[after_x][after_y]=2;
+        			blcwht[after_x][after_y]=2;
 	   			blcwht[before_x][before_y]=0;
+				w_pro();
 			}
 			else
 				printf("이동할 수 없습니다. \n");
@@ -389,6 +391,7 @@ void pawn() 		// 흰색 폰 이동코드
 				strcpy(chessboard[before_x][before_y], ".");
         				blcwht[after_x][after_y]=2;
 	   			blcwht[before_x][before_y]=0;
+				w_pro();
 			}
 			else
 				printf("이동할 수 없습니다. \n");
@@ -405,6 +408,7 @@ void pawn() 		// 흰색 폰 이동코드
 				strcpy(chessboard[before_x][before_y], ".");
         				blcwht[after_x][after_y]=2;
 	   			blcwht[before_x][before_y]=0;
+				w_pro();
 			}
 			else
 				printf("이동할 수 없습니다. \n");
@@ -416,6 +420,7 @@ void pawn() 		// 흰색 폰 이동코드
 				strcpy(chessboard[before_x][before_y], ".");
         				blcwht[after_x][after_y]=2;
 	   			blcwht[before_x][before_y]=0;
+				w_pro();
 			}
 			else
 				printf("이동할 수 없습니다. \n");
@@ -439,6 +444,7 @@ void Pawn() 		// 검은색 폰 이동코드
 				strcpy(chessboard[before_x][before_y], ".");
         				blcwht[after_x][after_y]=1;
 	   			blcwht[before_x][before_y]=0;
+				b_pro();
 			}
 			else
 				printf("이동할 수 없습니다. \n");
@@ -450,6 +456,7 @@ void Pawn() 		// 검은색 폰 이동코드
 				strcpy(chessboard[before_x][before_y], ".");
         				blcwht[after_x][after_y]=1;
 	   			blcwht[before_x][before_y]=0;
+				b_pro();
 			}
 			else 
 				printf("이동할 수 없습니다. \n");
@@ -466,6 +473,7 @@ void Pawn() 		// 검은색 폰 이동코드
 				strcpy(chessboard[before_x][before_y], ".");
         				blcwht[after_x][after_y]=1;
 	   			blcwht[before_x][before_y]=0;
+				b_pro();
 			}
 			else
 				printf("이동할 수 없습니다. \n");
@@ -477,6 +485,7 @@ void Pawn() 		// 검은색 폰 이동코드
 				strcpy(chessboard[before_x][before_y], ".");
         				blcwht[after_x][after_y]=1;
 	   			blcwht[before_x][before_y]=0;
+				b_pro();
 			}
 			else
 				printf("이동할 수 없습니다. \n");
@@ -488,7 +497,7 @@ void Pawn() 		// 검은색 폰 이동코드
 }
 
 void w_pro() {
-	if (after_y == 0 || after_y == 7) {
+	if (after_x == 0) {
 		printf("q, n, r, b 중 승격할 말을 선택 : ");
 		scanf(" %c", &w);
 		switch (w) {
@@ -512,7 +521,7 @@ void w_pro() {
 }
 
 void b_pro() {
-	if (after_y == 0 || after_y == 7) {
+	if (after_x == 7) {
 		printf("q, n, r, b 중 승격할 말을 선택 : ");
 		scanf(" %c", &b);
 		if (b == 'q')
