@@ -10,7 +10,6 @@ void howtouse();
 void whowin();
 void astoin();
 int getch();
-void Dis();
 void input_loc();
 void Rook();
 void Knight();
