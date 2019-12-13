@@ -304,10 +304,201 @@ void King() {                    // 검은색 왕 이동코드
 
 void queen() {                     // 흰색 퀸 이동코드
 	if ( (((before_x - after_x == 0) && (before_y - after_y != 0)) || ((before_x - after_x != 0) && (before_y - after_y == 0))) ||  ((before_x - after_x) + (before_y - after_y) == 0) || ( ((before_x - after_x) - (before_y - after_y) == 0)) )      {              // 상하좌우대각선
-		strcpy(chessboard[after_x][after_y], "q");
-		strcpy(chessboard[before_x][before_y], ".");
-        	blcwht[after_x][after_y]=2;
-        	blcwht[before_x][before_y]=0;
+		int true_ = 0;
+
+        	if (before_y - after_y < 0 && before_x - after_x == 0) {       // 현재y좌표 - 나중y좌표가 음수이고 직선으로 이동하면
+
+            		int n = 1;
+
+            		while ((n <= (after_y - before_y))) {
+                		if (strcmp(chessboard[before_x][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+					true_ = 0;
+					n++;
+				}
+               			else {
+                    			true_ = 1;
+                    			break;
+               			}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 2;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_y - after_y > 0 && before_x - after_x == 0) {      // 현재y좌표 - 나중y좌표가 양수이고 직선으로 이동하면
+
+            		int n = 1;
+
+            		while ((n <= (before_y - after_y))) {
+                		if (strcmp(chessboard[before_x][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                   			true_ = 0;
+                    			n++;
+                		}
+                		else {
+					true_ = 1;
+                    			break;
+                			}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 2;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+               		printf("이동할 수 없습니다.\n");
+		}
+
+        	else if (before_x - after_x < 0 && before_y - after_y == 0) {      // 현재x좌표 - 나중x좌표가 음수이고 직선으로 이동하면
+
+            		int n = 1;
+
+            		while ((n <= (after_x - before_x))) {
+                		if (strcmp(chessboard[before_x + n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                   			n++;
+                		}
+                		else {
+                   			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+               	 		strcpy(chessboard[after_x][after_y], "q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 2;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_x - after_x > 0 && before_y - after_y == 0) {      // 현재x좌표 - 나중x좌표가 양수이고 직선으로 이동하면
+
+           		int n = 1;
+
+           	 	while ((n <= (before_x - after_x))) {
+                		if (strcmp(chessboard[before_x - n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 2;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_y - after_y < 0 && before_x - after_x < 0) {       // 현재y좌표 - 나중y좌표가 음수이고 현재x좌표 - 나중x좌표가 음수, 대각선 이동
+
+            		int n = 1;
+
+            		while ((n <= (after_y - before_y))) {
+                		if (strcmp(chessboard[before_x + n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 2;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_y - after_y > 0 && before_x - after_x > 0) {      // 현재y좌표 - 나중y좌표가 양수이고 현재x좌표 - 나중x좌표가 양수, 대각선 이동
+
+            		int n = 1;
+
+            		while ((n <= (before_y - after_y))) {
+                		if (strcmp(chessboard[before_x - n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+           		 }
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 2;
+                		blcwht[before_x][before_y] = 0;
+           		 }
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_x - after_x < 0 && before_y - after_y >0) {      // 현재x좌표 - 나중x좌표가 음수이고 현재y좌표 - 나중y좌표가 양수, 대각선 이동
+
+            		int n = 1;
+
+            		while ((n <= (after_x - before_x))) {
+                		if (strcmp(chessboard[before_x + n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 2;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_x - after_x > 0 && before_y - after_y < 0) {      // 현재x좌표 - 나중x좌표가 양수이고 현재y좌표 - 나중y좌표가 음수, 대각선 이동
+
+           		int n = 1;
+
+            		while ((n <= (before_x - after_x))) {
+                		if (strcmp(chessboard[before_x - n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 2;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+        	else
+            		printf("이동할 수 없습니다.\n");
 	}
 	else
 		printf("이동할 수 없습니다.\n");
@@ -316,10 +507,201 @@ void queen() {                     // 흰색 퀸 이동코드
 void Queen() {                      //검은색 퀸 이동코드
 	if ( (((before_x - after_x == 0) && (before_y - after_y != 0)) || ((before_x - after_x != 0) && (before_y - after_y == 0))) ||  ((before_x - after_x) + (before_y - after_y) == 0) || ( ((before_x - after_x) - (before_y - after_y) == 0)) )                  //상하좌우대각선 
 	{
-		strcpy(chessboard[after_x][after_y], "Q");
-		strcpy(chessboard[before_x][before_y], ".");
-        	blcwht[after_x][after_y]=1;
-        	blcwht[before_x][before_y]=0;
+		int true_ = 0;
+
+        	if (before_y - after_y < 0 && before_x - after_x == 0) {       // 현재y좌표 - 나중y좌표가 음수이고 직선으로 이동하면
+
+            		int n = 1;
+
+            		while ((n <= (after_y - before_y))) {
+                		if (strcmp(chessboard[before_x][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+					true_ = 0;
+					n++;
+				}
+               			else {
+                    			true_ = 1;
+                    			break;
+               			}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "Q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 1;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_y - after_y > 0 && before_x - after_x == 0) {      // 현재y좌표 - 나중y좌표가 양수이고 직선으로 이동하면
+
+            		int n = 1;
+
+            		while ((n <= (before_y - after_y))) {
+                		if (strcmp(chessboard[before_x][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                   			true_ = 0;
+                    			n++;
+                		}
+                		else {
+					true_ = 1;
+                    			break;
+                			}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "Q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 1;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+               		printf("이동할 수 없습니다.\n");
+		}
+
+        	else if (before_x - after_x < 0 && before_y - after_y == 0) {      // 현재x좌표 - 나중x좌표가 음수이고 직선으로 이동하면
+
+            		int n = 1;
+
+            		while ((n <= (after_x - before_x))) {
+                		if (strcmp(chessboard[before_x + n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                   			n++;
+                		}
+                		else {
+                   			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+               	 		strcpy(chessboard[after_x][after_y], "Q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 1;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_x - after_x > 0 && before_y - after_y == 0) {      // 현재x좌표 - 나중x좌표가 양수이고 직선으로 이동하면
+
+           		int n = 1;
+
+           	 	while ((n <= (before_x - after_x))) {
+                		if (strcmp(chessboard[before_x - n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "Q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 1;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_y - after_y < 0 && before_x - after_x < 0) {       // 현재y좌표 - 나중y좌표가 음수이고 현재x좌표 - 나중x좌표가 음수, 대각선 이동
+
+            		int n = 1;
+
+            		while ((n <= (after_y - before_y))) {
+                		if (strcmp(chessboard[before_x + n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "Q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 1;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_y - after_y > 0 && before_x - after_x > 0) {      // 현재y좌표 - 나중y좌표가 양수이고 현재x좌표 - 나중x좌표가 양수, 대각선 이동
+
+            		int n = 1;
+
+            		while ((n <= (before_y - after_y))) {
+                		if (strcmp(chessboard[before_x - n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+           		 }
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "Q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 1;
+                		blcwht[before_x][before_y] = 0;
+           		 }
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_x - after_x < 0 && before_y - after_y >0) {      // 현재x좌표 - 나중x좌표가 음수이고 현재y좌표 - 나중y좌표가 양수, 대각선 이동
+
+            		int n = 1;
+
+            		while ((n <= (after_x - before_x))) {
+                		if (strcmp(chessboard[before_x + n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "Q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 1;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_x - after_x > 0 && before_y - after_y < 0) {      // 현재x좌표 - 나중x좌표가 양수이고 현재y좌표 - 나중y좌표가 음수, 대각선 이동
+
+           		int n = 1;
+
+            		while ((n <= (before_x - after_x))) {
+                		if (strcmp(chessboard[before_x - n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "Q");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 1;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+        	else
+            		printf("이동할 수 없습니다.\n");
 	}
 	else
 		printf("이동할 수 없습니다.\n");
@@ -327,10 +709,106 @@ void Queen() {                      //검은색 퀸 이동코드
 
 void rook() {                           // 흰색 룩 이동코드
 	if ( ((before_x - after_x == 0) && (before_y - after_y != 0)) || ((before_x - after_x != 0) && (before_y - after_y == 0)) ){                  // 상하좌우
-		strcpy(chessboard[after_x][after_y], "r");
-		strcpy(chessboard[before_x][before_y], ".");
-       		blcwht[after_x][after_y]=2;
-        	blcwht[before_x][before_y]=0;
+		int true_ = 0;
+
+        	if (before_y - after_y < 0) {       // 현재y좌표 - 나중y좌표가 음수이면
+
+            		int n = 1;
+
+            		while ((n <= (after_y - before_y))) {
+                		if (strcmp(chessboard[before_x][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+               			else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "r");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 2;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_y - after_y > 0) {      // 현재y좌표 - 나중y좌표가 양수이면
+
+            		int n = 1;
+
+            		while ((n <= (before_y - after_y))) {
+                		if (strcmp(chessboard[before_x][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+				   	true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "r");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 2;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_x - after_x < 0) {      // 현재x좌표 - 나중x좌표가 음수이면
+
+            		int n = 1;
+
+            		while ((n <= (after_x - before_x))) {
+                		if (strcmp(chessboard[before_x + n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+               			else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "r");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 2;
+                		blcwht[before_x][before_y] = 0;
+            		}
+           	 	else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_x - after_x > 0) {      // 현재x좌표 - 나중x좌표가 양수이면
+
+            		int n = 1;
+
+            		while ((n <= (before_x - after_x))) {
+                		if (strcmp(chessboard[before_x - n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "r");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 2;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+				printf("이동할 수 없습니다.\n");
+        	}
+
+        	else
+            		printf("이동할 수 없습니다.\n");
 	}
 	else
 		printf("이동할 수 없습니다.\n");
@@ -338,10 +816,107 @@ void rook() {                           // 흰색 룩 이동코드
 
 void Rook() {                               //검은색 룩 이동코드
 	if ( ((before_x - after_x == 0) && (before_y - after_y != 0)) || ((before_x - after_x != 0) && (before_y - after_y == 0)) ){                // 상하좌우
-		strcpy(chessboard[after_x][after_y], "R");
-		strcpy(chessboard[before_x][before_y], ".");
-       		blcwht[after_x][after_y]=1;
-        	blcwht[before_x][before_y]=0;
+		
+        	int true_ = 0;
+
+        	if (before_y - after_y < 0) {       // 현재y좌표 - 나중y좌표가 음수이면
+
+            		int n = 1;
+
+            		while ((n <= (after_y - before_y))) {
+                		if (strcmp(chessboard[before_x][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+               			else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "R");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 1;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_y - after_y > 0) {      // 현재y좌표 - 나중y좌표가 양수이면
+
+            		int n = 1;
+
+            		while ((n <= (before_y - after_y))) {
+                		if (strcmp(chessboard[before_x][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+				   	true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "R");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 1;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_x - after_x < 0) {      // 현재x좌표 - 나중x좌표가 음수이면
+
+            		int n = 1;
+
+            		while ((n <= (after_x - before_x))) {
+                		if (strcmp(chessboard[before_x + n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+               			else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "R");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 1;
+                		blcwht[before_x][before_y] = 0;
+            		}
+           	 	else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_x - after_x > 0) {      // 현재x좌표 - 나중x좌표가 양수이면
+
+            		int n = 1;
+
+            		while ((n <= (before_x - after_x))) {
+                		if (strcmp(chessboard[before_x - n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "R");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 1;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+				printf("이동할 수 없습니다.\n");
+        	}
+
+        	else
+            		printf("이동할 수 없습니다.\n");
 	}
 	else
 		printf("이동할 수 없습니다.\n");
@@ -350,10 +925,106 @@ void Rook() {                               //검은색 룩 이동코드
 void bishop() {                           // 흰색 비숍 이동코드
 	if ( ((before_x - after_x) + (before_y - after_y) == 0) || ( ((before_x - after_x) - (before_y - after_y) == 0)) )                 // 대각선
 	{
-		strcpy(chessboard[after_x][after_y], "b");
-		strcpy(chessboard[before_x][before_y], ".");
-        	blcwht[after_x][after_y]=2;
-        	blcwht[before_x][before_y]=0;
+		int true_ = 0;
+
+        	if (before_y - after_y < 0 && before_x - after_x < 0) {       // 현재y좌표 - 나중y좌표가 음수이면
+
+            		int n = 1;
+
+            		while ((n <= (after_y - before_y))) {
+                		if (strcmp(chessboard[before_x + n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "b");
+                		strcpy(chessboard[before_x][before_y], ".");
+				blcwht[after_x][after_y] = 2;
+               		 	blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_y - after_y > 0 && before_x - after_x > 0) {      // 현재y좌표 - 나중y좌표가 양수이면
+
+            		int n = 1;
+
+            		while ((n <= (before_y - after_y))) {
+                		if (strcmp(chessboard[before_x - n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "b");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 2;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_x - after_x < 0 && before_y - after_y >0) {      // 현재x좌표 - 나중x좌표가 음수이면
+
+            		int n = 1;
+
+            		while ((n <= (after_x - before_x))) {
+                		if (strcmp(chessboard[before_x + n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+               			strcpy(chessboard[after_x][after_y], "b");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 2;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_x - after_x > 0 && before_y - after_y < 0) {      // 현재x좌표 - 나중x좌표가 양수이면
+
+            		int n = 1;
+
+            		while ((n <= (before_x - after_x))) {
+                		if (strcmp(chessboard[before_x - n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                   	 		n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "b");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 2;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+		
+       		else
+            		printf("이동할 수 없습니다.\n");
 	}
 
 	else
@@ -362,11 +1033,108 @@ void bishop() {                           // 흰색 비숍 이동코드
 
 void Bishop() {                      // 검은색 비숍 이동코드
 	if ( ((before_x - after_x) + (before_y - after_y) == 0) || ( ((before_x - after_x) - (before_y - after_y) == 0)) )  {              // 대각선
-		strcpy(chessboard[after_x][after_y], "B");
-		strcpy(chessboard[before_x][before_y], ".");
-        	blcwht[after_x][after_y]=1;
-        	blcwht[before_x][before_y]=0;
+		int true_ = 0;
+
+        	if (before_y - after_y < 0 && before_x - after_x < 0) {       // 현재y좌표 - 나중y좌표가 음수이면
+
+            		int n = 1;
+
+            		while ((n <= (after_y - before_y))) {
+                		if (strcmp(chessboard[before_x + n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "B");
+                		strcpy(chessboard[before_x][before_y], ".");
+				blcwht[after_x][after_y] = 1;
+               		 	blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_y - after_y > 0 && before_x - after_x > 0) {      // 현재y좌표 - 나중y좌표가 양수이면
+
+            		int n = 1;
+
+            		while ((n <= (before_y - after_y))) {
+                		if (strcmp(chessboard[before_x - n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "B");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 1;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_x - after_x < 0 && before_y - after_y >0) {      // 현재x좌표 - 나중x좌표가 음수이면
+
+            		int n = 1;
+
+            		while ((n <= (after_x - before_x))) {
+                		if (strcmp(chessboard[before_x + n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                    			n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+               			strcpy(chessboard[after_x][after_y], "B");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 1;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+
+        	else if (before_x - after_x > 0 && before_y - after_y < 0) {      // 현재x좌표 - 나중x좌표가 양수이면
+
+            		int n = 1;
+
+            		while ((n <= (before_x - after_x))) {
+                		if (strcmp(chessboard[before_x - n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
+                    			true_ = 0;
+                   	 		n++;
+                		}
+                		else {
+                    			true_ = 1;
+                    			break;
+                		}
+            		}
+            		if (true_ == 0) {
+                		strcpy(chessboard[after_x][after_y], "B");
+                		strcpy(chessboard[before_x][before_y], ".");
+                		blcwht[after_x][after_y] = 1;
+                		blcwht[before_x][before_y] = 0;
+            		}
+            		else
+                		printf("이동할 수 없습니다.\n");
+        	}
+		
+       		else
+            		printf("이동할 수 없습니다.\n");
 	}
+	
 	else
 		printf("이동할 수 없습니다.\n");
 }
@@ -411,7 +1179,7 @@ void pawn()             // 흰색 폰 이동코드
         }
         if ( before_x == 6 )            // 처음 움직일때 (흰 말)
         {
-                 if ( (after_y == before_y) && (after_x == before_x-1) )                // 한칸만 이동하면
+                 if ( (after_y == before_y) && (after_x == before_x-1) && (strcmp(chessboard[after_x][after_y], ".") == 0))                // 한칸만 이동하면
                 {
                         if (blcwht[after_x][after_y] == 0) {
                                 strcpy(chessboard[after_x][after_y], "p");
@@ -421,7 +1189,7 @@ void pawn()             // 흰색 폰 이동코드
                                 w_pro();
                         }
                     }
-                 else if ( (after_y == before_y) && (after_x== before_x-2) )            // 첫수에 두칸 이동하면
+                 else if ( (after_y == before_y) && (after_x== before_x-2) && (strcmp(chessboard[after_x][after_y], ".") == 0))            // 첫수에 두칸 이동하면
                 {
                         if (blcwht[after_x][after_y] == 0) {                                    //옮길 장소가 비어있다면
                                 strcpy(chessboard[after_x][after_y], "p");                      //두칸 앞으로 옮긴다
@@ -457,7 +1225,7 @@ void pawn()             // 흰색 폰 이동코드
         }
         else            // 처음 움직이는게 아니라면 (흰 말)
         {
-                if ( (after_y == before_y) && (after_x == before_x-1) )         // 공격하지 않고 이동만 하면
+                if ( (after_y == before_y) && (after_x == before_x-1) && (strcmp(chessboard[after_x][after_y], ".") == 0))         // 공격하지 않고 이동만 하면
                 {
                         if (blcwht[after_x][after_y] == 0) {
                                 strcpy(chessboard[after_x][after_y], "p");
@@ -503,7 +1271,7 @@ void Pawn()             // 검은색 폰 이동코드
         }
         else if ( before_x == 1 )            // 처음 움직일때 (검은 말)
         {
-                 if ( (after_y == before_y) && (after_x == before_x+1) )                // 한칸만 이동하면
+                 if ( (after_y == before_y) && (after_x == before_x+1) && (strcmp(chessboard[after_x][after_y], ".") == 0))                // 한칸만 이동하면
                 {
                         if (blcwht[after_x][after_y] == 0) {
                                 strcpy(chessboard[after_x][after_y], "P");
@@ -513,7 +1281,7 @@ void Pawn()             // 검은색 폰 이동코드
                                 b_pro();
                         }
                     }
-                 else if ( (after_y == before_y) && (after_x== before_x+2) )            // 첫수에 두칸 이동하면
+                 else if ( (after_y == before_y) && (after_x== before_x+2) && (strcmp(chessboard[after_x][after_y], ".") == 0))            // 첫수에 두칸 이동하면
                 {
                         if (blcwht[after_x][after_y] == 0) {                                    //옮길 장소가 비어있다면
                                 strcpy(chessboard[after_x][after_y], "P");                      //두칸 앞으로 옮긴다
@@ -531,7 +1299,7 @@ void Pawn()             // 검은색 폰 이동코드
                         else
                                 printf("이동할 수 없습니다. \n");
                 }
-                else if ( (after_y == before_y) && (after_x == before_x+2) )            // 공격하지 않고 이동만 하면
+                else if ( (after_y == before_y) && (after_x == before_x+2) && (strcmp(chessboard[after_x][after_y], ".") == 0))            // 공격하지 않고 이동만 하면
                 {
                         if(blcwht[after_x][after_y] == 0) {
                                 strcpy(chessboard[after_x][after_y], "P");
@@ -560,7 +1328,7 @@ void Pawn()             // 검은색 폰 이동코드
         }
         else            // 처음 움직이는게 아니라면 (검은 말)
         {
-                if ( (after_y == before_y) && (after_x == before_x+1) )         //공격하지 않고 이동만 하면
+                if ( (after_y == before_y) && (after_x == before_x+1) && (strcmp(chessboard[after_x][after_y], ".") == 0))         //공격하지 않고 이동만 하면
                 {
                         if(blcwht[after_x][after_y] == 0) {
                                 strcpy(chessboard[after_x][after_y], "P");
