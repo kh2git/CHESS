@@ -27,7 +27,7 @@ void w_pro();
 void b_pro();
 void Dis();
 int check();
-int check();
+int Check();
 	
 int p1 = 1, p2 = 1, x, y, m, n;
 char w, b;
