@@ -27,6 +27,7 @@ void w_pro();
 void b_pro();
 void Dis();
 int check();
+int check();
 	
 int p1 = 1, p2 = 1, x, y, m, n;
 char w, b;
@@ -85,7 +86,8 @@ int main(){
          while(1){
 	  system("clear");
           print_chess();
-	  check();
+	  check();//소문자진영
+	  Check();//대문자진영
   	  input_loc();
 	  
          }
@@ -650,6 +652,124 @@ int check()//소문자의 체크 판별
 				check_cnt++;
 			}
 			if(strcmp(chessboard[king_x][j],"Q")==0){
+				check_cnt++;
+			}
+	}
+	
+	if(check_cnt>0){
+		printf("체크!\n");
+	}
+}
+
+int Check()//대문자의 체크 판별
+{
+	int king_x,king_y,check_cnt=0;
+	for(int i=0;i<8;i++){
+		for(int j=0;j<8;j++){
+			if(strcmp(chessboard[i][j],"K")==0){
+				king_x=i;
+				king_y=j;
+			}
+		}
+	}
+	for(int i=-1;i<2;i++){
+		for(int j=-1;j<2;j++){
+			if(strcmp(chessboard[king_x+i][king_y+j],"k")==0){
+				check_cnt++;
+			}
+		}
+	}
+	if(strcmp(chessboard[king_x-1][king_y-1],"p")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x-1][king_y+1],"p")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x+1][king_y+2],"n")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x-1][king_y+2],"n")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x+1][king_y-2],"n")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x-1][king_y-2],"n")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x+2][king_y+1],"n")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x-2][king_y+1],"n")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x+2][king_y-1],"n")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x-2][king_y-1],"n")==0){
+		check_cnt++;
+	}
+	for(int i=king_x;i<8;i++){
+			if(strcmp(chessboard[i][king_y],"r")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[i][king_y],"q")==0){
+				check_cnt++;
+			}
+	}
+	for(int i=king_x;i>-1;i--){
+			if(strcmp(chessboard[i][king_y],"r")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[i][king_y],"q")==0){
+				check_cnt++;
+			}
+	}
+	for(int j=king_y;j<8;j++){
+			if(strcmp(chessboard[king_x][j],"r")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[king_x][j],"q")==0){
+				check_cnt++;
+			}
+	}
+	for(int j=king_y;j>-1;j--){
+			if(strcmp(chessboard[king_x][j],"r")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[king_x][j],"q")==0){
+				check_cnt++;
+			}
+	}
+	for(int i=king_x,j=king_y;i<8&&j<8;i++,j++){
+			if(strcmp(chessboard[king_x][j],"b")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[king_x][j],"q")==0){
+				check_cnt++;
+			}
+	}
+	for(int i=king_x,j=king_y;i>-1&&j<8;i--,j++){
+			if(strcmp(chessboard[king_x][j],"b")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[king_x][j],"q")==0){
+				check_cnt++;
+			}
+	}
+	for(int i=king_x,j=king_y;i<8&&j>-1;i++,j--){
+			if(strcmp(chessboard[king_x][j],"b")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[king_x][j],"q")==0){
+				check_cnt++;
+			}
+	}
+	for(int i=king_x,j=king_y;i>-1&&j>-1;i--,j--){
+			if(strcmp(chessboard[king_x][j],"b")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[king_x][j],"q")==0){
 				check_cnt++;
 			}
 	}
