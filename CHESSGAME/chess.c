@@ -90,13 +90,10 @@ int main(){
          while(1){
 	  system("clear");
           print_chess();
-	  
-	  
-  	  
-		 
-	
+
 	if (player == 1)
 	{
+		printf("백의 턴입니다.(소문자)\n");
 		check();//소문자진영
 		input_loc();
 		white();
@@ -105,12 +102,13 @@ int main(){
 		 
 	else if (player == 2)
 	{
+		printf("흑의 턴입니다.(대문자)\n");
 		Check();//대문자진영
 		input_loc();
 		black();
 		player--;
 	}
-	  
+ }
          break;
       case 2:
          howtouse();
