@@ -25,8 +25,7 @@ void queen();
 void pawn();
 void w_pro();
 void b_pro();
-void white();
-void black();
+void Dis();
 	
 int p1 = 1, p2 = 1, x, y, m, n;
 char w, b;
@@ -161,7 +160,7 @@ void input_loc() {
 	    	printf("아군을 공격할 수 없습니다.\n");
 	    	input_loc();
 	}
-    white();
+    Dis();
 }
 
 void print_chess() {
@@ -182,7 +181,7 @@ void print_chess() {
     printf("\t   -------------------------------------------------\n");
 }
 
-void black()           //검은말 이동           
+void Dis()           //검은말 이동           
 {
         if (strcmp(chessboard[before_x][before_y], "R")==0)
         Rook();
@@ -196,13 +195,7 @@ void black()           //검은말 이동
         King();
         else if (strcmp(chessboard[before_x][before_y], "P")==0)
         Pawn();
-	else  //잘못 선택하였을 때
-	printf("다시 입력해주세요\n");	
-}
-
-void white()          //하얀말 이동
-{
-        if (strcmp(chessboard[before_x][before_y], "r")==0)
+        else if (strcmp(chessboard[before_x][before_y], "r")==0)
         rook();
         else if (strcmp(chessboard[before_x][before_y], "n")==0)
         knight();
