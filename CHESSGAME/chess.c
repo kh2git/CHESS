@@ -26,6 +26,7 @@ void pawn();
 void w_pro();
 void b_pro();
 void Dis();
+int check();
 	
 int p1 = 1, p2 = 1, x, y, m, n;
 char w, b;
@@ -84,6 +85,7 @@ int main(){
          while(1){
 	  system("clear");
           print_chess();
+	  check();
   	  input_loc();
 	  
          }
@@ -207,8 +209,8 @@ void Dis()           //검은말 이동
         king();
         else if (strcmp(chessboard[before_x][before_y], "p")==0)
         pawn();
-	else  //잘못 선택하였을 
-	printf("다시 입력해주세요\n");	
+	else  //잘못 선택하였을
+	printf("다시 입력해주세요\n");
 }
 
 void whowin(){
@@ -536,5 +538,123 @@ void b_pro() {
 			printf("잘못된 입력입니다.\n");
 			b_pro();
 		}
+	}
+}
+
+int check()//소문자의 체크 판별
+{
+	int king_x,king_y,check_cnt=0;
+	for(int i=0;i<8;i++){
+		for(int j=0;j<8;j++){
+			if(strcmp(chessboard[i][j],"k")==0){
+				king_x=i;
+				king_y=j;
+			}
+		}
+	}
+	for(int i=-1;i<2;i++){
+		for(int j=-1;j<2;j++){
+			if(strcmp(chessboard[king_x+i][king_y+j],"K")==0){
+				check_cnt++;
+			}
+		}
+	}
+	if(strcmp(chessboard[king_x-1][king_y-1],"P")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x-1][king_y+1],"P")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x+1][king_y+2],"N")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x-1][king_y+2],"N")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x+1][king_y-2],"N")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x-1][king_y-2],"N")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x+2][king_y+1],"N")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x-2][king_y+1],"N")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x+2][king_y-1],"N")==0){
+		check_cnt++;
+	}
+	if(strcmp(chessboard[king_x-2][king_y-1],"N")==0){
+		check_cnt++;
+	}
+	for(int i=king_x;i<8;i++){
+			if(strcmp(chessboard[i][king_y],"R")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[i][king_y],"Q")==0){
+				check_cnt++;
+			}
+	}
+	for(int i=king_x;i>-1;i--){
+			if(strcmp(chessboard[i][king_y],"R")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[i][king_y],"Q")==0){
+				check_cnt++;
+			}
+	}
+	for(int j=king_y;j<8;j++){
+			if(strcmp(chessboard[king_x][j],"R")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[king_x][j],"Q")==0){
+				check_cnt++;
+			}
+	}
+	for(int j=king_y;j>-1;j--){
+			if(strcmp(chessboard[king_x][j],"R")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[king_x][j],"Q")==0){
+				check_cnt++;
+			}
+	}
+	for(int i=king_x,j=king_y;i<8&&j<8;i++,j++){
+			if(strcmp(chessboard[king_x][j],"B")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[king_x][j],"Q")==0){
+				check_cnt++;
+			}
+	}
+	for(int i=king_x,j=king_y;i>-1&&j<8;i--,j++){
+			if(strcmp(chessboard[king_x][j],"B")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[king_x][j],"Q")==0){
+				check_cnt++;
+			}
+	}
+	for(int i=king_x,j=king_y;i<8&&j>-1;i++,j--){
+			if(strcmp(chessboard[king_x][j],"B")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[king_x][j],"Q")==0){
+				check_cnt++;
+			}
+	}
+	for(int i=king_x,j=king_y;i>-1&&j>-1;i--,j--){
+			if(strcmp(chessboard[king_x][j],"B")==0){
+				check_cnt++;
+			}
+			if(strcmp(chessboard[king_x][j],"Q")==0){
+				check_cnt++;
+			}
+	}
+	
+	if(check_cnt>0){
+		printf("체크!\n");
 	}
 }
