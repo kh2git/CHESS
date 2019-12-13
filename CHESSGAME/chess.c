@@ -161,7 +161,7 @@ void input_loc() {
 	    	printf("아군을 공격할 수 없습니다.\n");
 	    	input_loc();
 	}
-    Dis();
+    white();
 }
 
 void print_chess() {
