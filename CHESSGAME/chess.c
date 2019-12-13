@@ -181,7 +181,7 @@ void print_chess() {
     printf("\t   -------------------------------------------------\n");
 }
 
-void Dis()                      //입력한 자리에 위치한 말 판별
+void black();           //검은말 이동           
 {
         if (strcmp(chessboard[before_x][before_y], "R")==0)
         Rook();
@@ -195,6 +195,12 @@ void Dis()                      //입력한 자리에 위치한 말 판별
         King();
         else if (strcmp(chessboard[before_x][before_y], "P")==0)
         Pawn();
+	else  //잘못 선택하였을 때
+	printf("다시 입력해주세요\n");	
+}
+
+void white();           //하얀말 이동
+{
         else if (strcmp(chessboard[before_x][before_y], "r")==0)
         rook();
         else if (strcmp(chessboard[before_x][before_y], "n")==0)
