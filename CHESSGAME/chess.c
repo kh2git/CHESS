@@ -310,7 +310,7 @@ void queen() {                     // 흰색 퀸 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_y - before_y))) {
+            		while ((n < (after_y - before_y))) {
                 		if (strcmp(chessboard[before_x][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
 					true_ = 0;
 					n++;
@@ -334,7 +334,7 @@ void queen() {                     // 흰색 퀸 이동코드
 
             		int n = 1;
 
-            		while ((n <= (before_y - after_y))) {
+            		while ((n < (before_y - after_y))) {
                 		if (strcmp(chessboard[before_x][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                    			true_ = 0;
                     			n++;
@@ -358,7 +358,7 @@ void queen() {                     // 흰색 퀸 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_x - before_x))) {
+            		while ((n < (after_x - before_x))) {
                 		if (strcmp(chessboard[before_x + n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                    			n++;
@@ -382,7 +382,7 @@ void queen() {                     // 흰색 퀸 이동코드
 
            		int n = 1;
 
-           	 	while ((n <= (before_x - after_x))) {
+           	 	while ((n < (before_x - after_x))) {
                 		if (strcmp(chessboard[before_x - n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -406,7 +406,7 @@ void queen() {                     // 흰색 퀸 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_y - before_y))) {
+            		while ((n < (after_y - before_y))) {
                 		if (strcmp(chessboard[before_x + n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -430,7 +430,7 @@ void queen() {                     // 흰색 퀸 이동코드
 
             		int n = 1;
 
-            		while ((n <= (before_y - after_y))) {
+            		while ((n < (before_y - after_y))) {
                 		if (strcmp(chessboard[before_x - n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -454,7 +454,7 @@ void queen() {                     // 흰색 퀸 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_x - before_x))) {
+            		while ((n < (after_x - before_x))) {
                 		if (strcmp(chessboard[before_x + n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -478,7 +478,7 @@ void queen() {                     // 흰색 퀸 이동코드
 
            		int n = 1;
 
-            		while ((n <= (before_x - after_x))) {
+            		while ((n < (before_x - after_x))) {
                 		if (strcmp(chessboard[before_x - n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -513,7 +513,7 @@ void Queen() {                      //검은색 퀸 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_y - before_y))) {
+            		while ((n < (after_y - before_y))) {
                 		if (strcmp(chessboard[before_x][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
 					true_ = 0;
 					n++;
@@ -537,7 +537,7 @@ void Queen() {                      //검은색 퀸 이동코드
 
             		int n = 1;
 
-            		while ((n <= (before_y - after_y))) {
+            		while ((n < (before_y - after_y))) {
                 		if (strcmp(chessboard[before_x][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                    			true_ = 0;
                     			n++;
@@ -561,7 +561,7 @@ void Queen() {                      //검은색 퀸 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_x - before_x))) {
+            		while ((n < (after_x - before_x))) {
                 		if (strcmp(chessboard[before_x + n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                    			n++;
@@ -585,7 +585,7 @@ void Queen() {                      //검은색 퀸 이동코드
 
            		int n = 1;
 
-           	 	while ((n <= (before_x - after_x))) {
+           	 	while ((n < (before_x - after_x))) {
                 		if (strcmp(chessboard[before_x - n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -609,7 +609,7 @@ void Queen() {                      //검은색 퀸 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_y - before_y))) {
+            		while ((n < (after_y - before_y))) {
                 		if (strcmp(chessboard[before_x + n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -633,7 +633,7 @@ void Queen() {                      //검은색 퀸 이동코드
 
             		int n = 1;
 
-            		while ((n <= (before_y - after_y))) {
+            		while ((n < (before_y - after_y))) {
                 		if (strcmp(chessboard[before_x - n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -657,7 +657,7 @@ void Queen() {                      //검은색 퀸 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_x - before_x))) {
+            		while ((n < (after_x - before_x))) {
                 		if (strcmp(chessboard[before_x + n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -681,7 +681,7 @@ void Queen() {                      //검은색 퀸 이동코드
 
            		int n = 1;
 
-            		while ((n <= (before_x - after_x))) {
+            		while ((n < (before_x - after_x))) {
                 		if (strcmp(chessboard[before_x - n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -715,7 +715,7 @@ void rook() {                           // 흰색 룩 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_y - before_y))) {
+            		while ((n < (after_y - before_y))) {
                 		if (strcmp(chessboard[before_x][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -739,7 +739,7 @@ void rook() {                           // 흰색 룩 이동코드
 
             		int n = 1;
 
-            		while ((n <= (before_y - after_y))) {
+            		while ((n < (before_y - after_y))) {
                 		if (strcmp(chessboard[before_x][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
 				   	true_ = 0;
                     			n++;
@@ -763,7 +763,7 @@ void rook() {                           // 흰색 룩 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_x - before_x))) {
+            		while ((n < (after_x - before_x))) {
                 		if (strcmp(chessboard[before_x + n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -787,7 +787,7 @@ void rook() {                           // 흰색 룩 이동코드
 
             		int n = 1;
 
-            		while ((n <= (before_x - after_x))) {
+            		while ((n < (before_x - after_x))) {
                 		if (strcmp(chessboard[before_x - n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -823,7 +823,7 @@ void Rook() {                               //검은색 룩 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_y - before_y))) {
+            		while ((n < (after_y - before_y))) {
                 		if (strcmp(chessboard[before_x][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -847,7 +847,7 @@ void Rook() {                               //검은색 룩 이동코드
 
             		int n = 1;
 
-            		while ((n <= (before_y - after_y))) {
+            		while ((n < (before_y - after_y))) {
                 		if (strcmp(chessboard[before_x][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
 				   	true_ = 0;
                     			n++;
@@ -871,7 +871,7 @@ void Rook() {                               //검은색 룩 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_x - before_x))) {
+            		while ((n < (after_x - before_x))) {
                 		if (strcmp(chessboard[before_x + n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -895,7 +895,7 @@ void Rook() {                               //검은색 룩 이동코드
 
             		int n = 1;
 
-            		while ((n <= (before_x - after_x))) {
+            		while ((n < (before_x - after_x))) {
                 		if (strcmp(chessboard[before_x - n][before_y], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -931,7 +931,7 @@ void bishop() {                           // 흰색 비숍 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_y - before_y))) {
+            		while ((n < (after_y - before_y))) {
                 		if (strcmp(chessboard[before_x + n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -955,7 +955,7 @@ void bishop() {                           // 흰색 비숍 이동코드
 
             		int n = 1;
 
-            		while ((n <= (before_y - after_y))) {
+            		while ((n < (before_y - after_y))) {
                 		if (strcmp(chessboard[before_x - n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -979,7 +979,7 @@ void bishop() {                           // 흰색 비숍 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_x - before_x))) {
+            		while ((n < (after_x - before_x))) {
                 		if (strcmp(chessboard[before_x + n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -1003,7 +1003,7 @@ void bishop() {                           // 흰색 비숍 이동코드
 
             		int n = 1;
 
-            		while ((n <= (before_x - after_x))) {
+            		while ((n < (before_x - after_x))) {
                 		if (strcmp(chessboard[before_x - n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                    	 		n++;
@@ -1039,7 +1039,7 @@ void Bishop() {                      // 검은색 비숍 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_y - before_y))) {
+            		while ((n < (after_y - before_y))) {
                 		if (strcmp(chessboard[before_x + n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -1063,7 +1063,7 @@ void Bishop() {                      // 검은색 비숍 이동코드
 
             		int n = 1;
 
-            		while ((n <= (before_y - after_y))) {
+            		while ((n < (before_y - after_y))) {
                 		if (strcmp(chessboard[before_x - n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -1087,7 +1087,7 @@ void Bishop() {                      // 검은색 비숍 이동코드
 
             		int n = 1;
 
-            		while ((n <= (after_x - before_x))) {
+            		while ((n < (after_x - before_x))) {
                 		if (strcmp(chessboard[before_x + n][before_y - n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                     			n++;
@@ -1111,7 +1111,7 @@ void Bishop() {                      // 검은색 비숍 이동코드
 
             		int n = 1;
 
-            		while ((n <= (before_x - after_x))) {
+            		while ((n < (before_x - after_x))) {
                 		if (strcmp(chessboard[before_x - n][before_y + n], ".") == 0) {     //이동하는 경로 사이에 기물 있는지 확인
                     			true_ = 0;
                    	 		n++;
