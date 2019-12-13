@@ -26,6 +26,8 @@ void queen();
 void pawn();
 void w_pro();
 void b_pro();
+void white();
+void black();
 	
 int p1 = 1, p2 = 1, x, y, m, n;
 char w, b;
