@@ -1179,7 +1179,7 @@ void pawn()             // 흰색 폰 이동코드
         }
         if ( before_x == 6 )            // 처음 움직일때 (흰 말)
         {
-                 if ( (after_y == before_y) && (after_x == before_x-1) && (strcmp(chessboard[after_x][after_y], ".") == 0))                // 한칸만 이동하면
+                 if ( (after_y == before_y) && (after_x == before_x-1) )                // 한칸만 이동하면
                 {
                         if (blcwht[after_x][after_y] == 0) {
                                 strcpy(chessboard[after_x][after_y], "p");
@@ -1189,7 +1189,7 @@ void pawn()             // 흰색 폰 이동코드
                                 w_pro();
                         }
                     }
-                 else if ( (after_y == before_y) && (after_x== before_x-2) && (strcmp(chessboard[after_x][after_y], ".") == 0))            // 첫수에 두칸 이동하면
+                 else if ( (after_y == before_y) && (after_x== before_x-2) )            // 첫수에 두칸 이동하면
                 {
                         if (blcwht[after_x][after_y] == 0) {                                    //옮길 장소가 비어있다면
                                 strcpy(chessboard[after_x][after_y], "p");                      //두칸 앞으로 옮긴다
@@ -1225,7 +1225,7 @@ void pawn()             // 흰색 폰 이동코드
         }
         else            // 처음 움직이는게 아니라면 (흰 말)
         {
-                if ( (after_y == before_y) && (after_x == before_x-1) && (strcmp(chessboard[after_x][after_y], ".") == 0))         // 공격하지 않고 이동만 하면
+                if ( (after_y == before_y) && (after_x == before_x-1) )         // 공격하지 않고 이동만 하면
                 {
                         if (blcwht[after_x][after_y] == 0) {
                                 strcpy(chessboard[after_x][after_y], "p");
@@ -1271,7 +1271,7 @@ void Pawn()             // 검은색 폰 이동코드
         }
         else if ( before_x == 1 )            // 처음 움직일때 (검은 말)
         {
-                 if ( (after_y == before_y) && (after_x == before_x+1) && (strcmp(chessboard[after_x][after_y], ".") == 0))                // 한칸만 이동하면
+                 if ( (after_y == before_y) && (after_x == before_x+1))                // 한칸만 이동하면
                 {
                         if (blcwht[after_x][after_y] == 0) {
                                 strcpy(chessboard[after_x][after_y], "P");
@@ -1281,7 +1281,7 @@ void Pawn()             // 검은색 폰 이동코드
                                 b_pro();
                         }
                     }
-                 else if ( (after_y == before_y) && (after_x== before_x+2) && (strcmp(chessboard[after_x][after_y], ".") == 0))            // 첫수에 두칸 이동하면
+                 else if ( (after_y == before_y) && (after_x== before_x+2) )            // 첫수에 두칸 이동하면
                 {
                         if (blcwht[after_x][after_y] == 0) {                                    //옮길 장소가 비어있다면
                                 strcpy(chessboard[after_x][after_y], "P");                      //두칸 앞으로 옮긴다
@@ -1290,7 +1290,7 @@ void Pawn()             // 검은색 폰 이동코드
                                 blcwht[before_x][before_y]=0;
                                 b_pro();
                         	
-                                if((strcmp(chessboard[after_x][after_y+1], "P")==0 || (strcmp(chessboard[after_x][after_y-1], "p")== 0))) //왼쪽 또는 오른쪽에 상대폰이 있다면
+                                if((strcmp(chessboard[after_x][after_y+1], "p")==0 || (strcmp(chessboard[after_x][after_y-1], "p")== 0))) //왼쪽 또는 오른쪽에 상대폰이 있다면
                                 {
                                         An_x=after_x;                                                           //앙파상 대상이 되는 폰의 위치 저장
                                         An_y=after_y;
@@ -1299,7 +1299,7 @@ void Pawn()             // 검은색 폰 이동코드
                         else
                                 printf("이동할 수 없습니다. \n");
                 }
-                else if ( (after_y == before_y) && (after_x == before_x+2) && (strcmp(chessboard[after_x][after_y], ".") == 0))            // 공격하지 않고 이동만 하면
+                else if ( (after_y == before_y) && (after_x == before_x+2) )            // 공격하지 않고 이동만 하면
                 {
                         if(blcwht[after_x][after_y] == 0) {
                                 strcpy(chessboard[after_x][after_y], "P");
@@ -1328,7 +1328,7 @@ void Pawn()             // 검은색 폰 이동코드
         }
         else            // 처음 움직이는게 아니라면 (검은 말)
         {
-                if ( (after_y == before_y) && (after_x == before_x+1) && (strcmp(chessboard[after_x][after_y], ".") == 0))         //공격하지 않고 이동만 하면
+                if ( (after_y == before_y) && (after_x == before_x+1) )         //공격하지 않고 이동만 하면
                 {
                         if(blcwht[after_x][after_y] == 0) {
                                 strcpy(chessboard[after_x][after_y], "P");
