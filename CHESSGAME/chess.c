@@ -25,11 +25,12 @@ void queen();
 void pawn();
 void w_pro();
 void b_pro();
-void Dis();
+void black();
+void white();
 int check();
 int Check();
 	
-int p1 = 1, p2 = 1, x, y, m, n;
+int player = 1, x, y, m, n;
 int an_x=0;
 int an_y=0;
 int An_x=0;
@@ -79,7 +80,7 @@ char *p_before,*p_after;  // 현재 흑백말 위치와 이동하고 싶은 말�
 int before_x,before_y,after_x,after_y; //좌표를 숫자로 바꾼 변수
 
 int main(){
-   int keyCode;
+   int keyCode, turn;
    while(1){
    system("clear");
    menuDraw();
@@ -93,8 +94,22 @@ int main(){
 	  check();//소문자진영
 	  Check();//대문자진영
   	  input_loc();
+		 
+	while(turn<1000)
+	turn++;
+	if (player == 1)
+	{
+		white();
+		player++;
+	}
+		 
+	else if (player == 2)
+	{
+		black();
+		player--:
+	}
 	  
-         }
+}
          break;
       case 2:
          howtouse();
@@ -168,7 +183,7 @@ void input_loc() {
 	    	printf("아군을 공격할 수 없습니다.\n");
 	    	input_loc();
 	}
-    Dis();
+    
 }
 
 void print_chess() {
@@ -189,7 +204,7 @@ void print_chess() {
     printf("\t   -------------------------------------------------\n");
 }
 
-void Dis()           //검은말 이동           
+void black()           //검은말 이동           
 {
         if (strcmp(chessboard[before_x][before_y], "R")==0)
         Rook();
@@ -203,7 +218,12 @@ void Dis()           //검은말 이동
         King();
         else if (strcmp(chessboard[before_x][before_y], "P")==0)
         Pawn();
-        else if (strcmp(chessboard[before_x][before_y], "r")==0)
+	else
+	printf("다시 입력해주세요\n");
+	
+void white()
+{
+        if (strcmp(chessboard[before_x][before_y], "r")==0)
         rook();
         else if (strcmp(chessboard[before_x][before_y], "n")==0)
         knight();
