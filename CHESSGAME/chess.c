@@ -181,7 +181,7 @@ void print_chess() {
     printf("\t   -------------------------------------------------\n");
 }
 
-void black();           //검은말 이동           
+void black()           //검은말 이동           
 {
         if (strcmp(chessboard[before_x][before_y], "R")==0)
         Rook();
@@ -199,7 +199,7 @@ void black();           //검은말 이동
 	printf("다시 입력해주세요\n");	
 }
 
-void white();           //하얀말 이동
+void white()          //하얀말 이동
 {
         else if (strcmp(chessboard[before_x][before_y], "r")==0)
         rook();
