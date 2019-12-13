@@ -201,7 +201,7 @@ void black()           //검은말 이동
 
 void white()          //하얀말 이동
 {
-        else if (strcmp(chessboard[before_x][before_y], "r")==0)
+        if (strcmp(chessboard[before_x][before_y], "r")==0)
         rook();
         else if (strcmp(chessboard[before_x][before_y], "n")==0)
         knight();
