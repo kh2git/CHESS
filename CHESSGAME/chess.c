@@ -78,7 +78,6 @@ char HEIGHT[8] = "ABCDEFGH";
 
 char *p_before,*p_after;  // 현재 흑백말 위치와 이동하고 싶은 말의 위치
 int before_x,before_y,after_x,after_y; //좌표를 숫자로 바꾼 변수
-
 int main(){
    int keyCode, turn;
    while(1){
@@ -91,25 +90,27 @@ int main(){
          while(1){
 	  system("clear");
           print_chess();
-	  check();//소문자진영
-	  Check();//대문자진영
-  	  input_loc();
+	  
+	  
+  	  
 		 
-	while(turn<1000)
-	turn++;
+	
 	if (player == 1)
 	{
+		check();//소문자진영
+		input_loc();
 		white();
 		player++;
 	}
 		 
 	else if (player == 2)
 	{
+		Check();//대문자진영
+		input_loc();
 		black();
-		player--:
+		player--;
 	}
 	  
-}
          break;
       case 2:
          howtouse();
@@ -220,7 +221,7 @@ void black()           //검은말 이동
         Pawn();
 	else
 	printf("다시 입력해주세요\n");
-	
+}
 void white()
 {
         if (strcmp(chessboard[before_x][before_y], "r")==0)
