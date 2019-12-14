@@ -261,12 +261,12 @@ void whowin(){
 	}
 	if(w_cnt==0){
 		system("clear");
-		printf("흑이 승리하였습니다!");
+		printf("백이 승리하였습니다!");
 		exit(0);
 	}
 	else if(b_cnt==0){
 		system("clear");
-		printf("백이 승리하였습니다!");
+		printf("흑이 승리하였습니다!");
 		exit(0);
 	}
 }
