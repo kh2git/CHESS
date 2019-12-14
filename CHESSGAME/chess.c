@@ -89,6 +89,7 @@ int main(){
       case 1:
          while(1){
 	  system("clear");
+	  whowin();
           print_chess();
 
 	if (player == 1)
@@ -246,21 +247,27 @@ void white()
 
 void whowin(){
 	int w_cnt,b_cnt;
+	w_cnt=0;
+	b_cnt=0;
 	for(int i=0;i<8;i++){
 		for(int j=0;j<8;j++){
 			if(strcmp(chessboard[i][j],"K")==0){
 				w_cnt++;
 			}
-			else if(strcmp(chessboard[i][j],"k")==0){
+			if(strcmp(chessboard[i][j],"k")==0){
 				b_cnt++;
 			}
 		}
 	}
 	if(w_cnt==0){
+		system("clear");
 		printf("흑이 승리하였습니다!");
+		exit(0);
 	}
 	else if(b_cnt==0){
+		system("clear");
 		printf("백이 승리하였습니다!");
+		exit(0);
 	}
 }
  
