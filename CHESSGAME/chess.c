@@ -1807,7 +1807,7 @@ void w_pro() {
 **/
 void b_pro() {
 	if (after_x == 7) {
-		printf("q, n, r, b 중 승격할 말을 선택 : ");
+		printf("Q, N, R, B 중 승격할 말을 선택 : ");
 		scanf(" %c", &b);
 		if (b == 'q')
 			strcpy(chessboard[after_x][after_y], "Q");
