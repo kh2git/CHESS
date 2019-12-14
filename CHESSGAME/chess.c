@@ -388,7 +388,7 @@ void king() {                      //흰색 왕 이동코드
    }
    
    else if ((strcmp(chessboard[7][5], ".") ==0 ) && (strcmp(chessboard[7][6], ".")==0 )) { //캐슬링 여부확인
-      if(((before_y - after_y == -2) || (before_y - after_y == 2)) && (after_x == before_x)) { //캐슬링
+      if((before_y - after_y == -2) && (after_x == before_x)) { //캐슬링
                if(after_y == 6) {  // 숏 캐슬링
                             strcpy(chessboard[after_x][after_y], "k");
                             strcpy(chessboard[before_x][before_y], ".");
@@ -404,7 +404,7 @@ void king() {                      //흰색 왕 이동코드
 
 
    else if (((strcmp(chessboard[7][1], ".") ==0 ) && (strcmp(chessboard[7][2], ".")==0 )) && (strcmp(chessboard[7][3],".")==0)) {  // 캐슬링 여부확인
-         if(((before_y - after_y == -2) || (before_y - after_y == 2)) && (after_x == before_x)) {
+         if((before_y - after_y == 2) && (after_x == before_x)) {
                if(after_y == 3) {  // 롱 캐슬링
                               strcpy(chessboard[after_x][after_y], "k");
                               strcpy(chessboard[before_x][before_y], ".");
@@ -441,7 +441,7 @@ void King() {                    // 검은색 왕 이동코드
    }
 
    else if ((strcmp(chessboard[0][5], ".") ==0 ) && (strcmp(chessboard[0][6], ".")==0 )) { //캐슬링 여부확인
-         if(((before_y - after_y == -2) || (before_y - after_y == 2)) && (after_x == before_x)) { //캐슬링
+         if((before_y - after_y == -2) && (after_x == before_x)) { //캐슬링
                if(after_y == 6) {  // 숏 캐슬링
                             strcpy(chessboard[after_x][after_y], "K");
                             strcpy(chessboard[before_x][before_y], ".");
@@ -457,7 +457,7 @@ void King() {                    // 검은색 왕 이동코드
 
 
    else if (((strcmp(chessboard[0][1], ".") ==0 ) && (strcmp(chessboard[0][2], ".")==0 )) && (strcmp(chessboard[0][3],".")==0)) {  // 캐슬링 여부확인
-         if(((before_y - after_y == -2) || (before_y - after_y == 2)) && (after_x == before_x)) {
+         if((before_y - after_y == 2) && (after_x == before_x)) {
                if(after_y == 3) {  // 롱 캐슬링
                               strcpy(chessboard[after_x][after_y], "K");
                               strcpy(chessboard[before_x][before_y], ".");
