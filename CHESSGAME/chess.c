@@ -287,25 +287,89 @@ void astoin(){
 
 
 void king() {                      //흰색 왕 이동코드
-    if ( ((before_x - after_x <= 1) && (before_x - after_x >= -1)) && ((before_y - after_y <= 1) && (before_y - after_y >= -1))) {           // 상하좌우 or 대각선 한칸
-                strcpy(chessboard[after_x][after_y], "k");
-        strcpy(chessboard[before_x][before_y], ".");
-        blcwht[after_x][after_y]=2;
-        blcwht[before_x][before_y]=0;
-    }
-    else
-        printf("이동할 수 없습니다.\n");
-}
+   if ( ((before_x - after_x <= 1) && (before_x - after_x >= -1)) && ((before_y - after_y <= 1) && (before_y - after_y >= -1))) {           // 상하좌우 or 대각선 한칸
+      strcpy(chessboard[after_x][after_y], "k");
+              strcpy(chessboard[before_x][before_y], ".");
+      blcwht[after_x][after_y]=2;
+      blcwht[before_x][before_y]=0;
+   }
+   
+   else if ((strcmp(chessboard[7][5], ".") ==0 ) && (strcmp(chessboard[7][6], ".")==0 )) { //캐슬링 여부확인
+      if(((before_y - after_y == -2) || (before_y - after_y == 2)) && (after_x == before_x)) { //캐슬링
+               if(after_y == 6) {  // 숏 캐슬링
+                            strcpy(chessboard[after_x][after_y], "k");
+                            strcpy(chessboard[before_x][before_y], ".");
+                            strcpy(chessboard[7][5], "r");
+                            strcpy(chessboard[7][7], ".");
+                            blcwht[after_x][after_y] = 2;
+                           blcwht[before_x][before_y] = 0;
+                           blcwht[7][5]=2;
+                           blcwht[7][7]=0;
+               }
+        }
+   }
 
+
+   else if (((strcmp(chessboard[7][1], ".") ==0 ) && (strcmp(chessboard[7][2], ".")==0 )) && (strcmp(chessboard[7][3],".")==0)) {  // 캐슬링 여부확인
+         if(((before_y - after_y == -2) || (before_y - after_y == 2)) && (after_x == before_x)) {
+               if(after_y == 3) {  // 롱 캐슬링
+                              strcpy(chessboard[after_x][after_y], "k");
+                              strcpy(chessboard[before_x][before_y], ".");
+                              strcpy(chessboard[7][3], "r");
+                               strcpy(chessboard[7][0], ".");
+                               blcwht[after_x][after_y] = 2;
+                               blcwht[before_x][before_y] = 0;
+                               blcwht[7][3]=2;
+                               blcwht[7][0]=0;
+               }
+         }
+   }
+
+   else
+      printf("이동할 수 없습니다.\n");
+
+}
 void King() {                    // 검은색 왕 이동코드
-	if (((before_x - after_x <= 1) && (before_x - after_x >= -1)) && ((before_y - after_y <= 1) && (before_y - after_y >= -1))){       // 상하좌우 or 대각선 한칸
-        		strcpy(chessboard[after_x][after_y], "K");
-			strcpy(chessboard[before_x][before_y], ".");
-        		blcwht[after_x][after_y]=1;
-        		blcwht[before_x][before_y]=0;
-	}
-	else
-		printf("이동할 수 없습니다.\n");
+   if (((before_x - after_x <= 1) && (before_x - after_x >= -1)) && ((before_y - after_y <= 1) && (before_y - after_y >= -1))){       // 상하좌우 or 대각선 한칸
+              strcpy(chessboard[after_x][after_y], "K");
+      strcpy(chessboard[before_x][before_y], ".");
+              blcwht[after_x][after_y]=1;
+              blcwht[before_x][before_y]=0;
+   }
+
+   else if ((strcmp(chessboard[0][5], ".") ==0 ) && (strcmp(chessboard[0][6], ".")==0 )) { //캐슬링 여부확인
+         if(((before_y - after_y == -2) || (before_y - after_y == 2)) && (after_x == before_x)) { //캐슬링
+               if(after_y == 6) {  // 숏 캐슬링
+                            strcpy(chessboard[after_x][after_y], "k");
+                            strcpy(chessboard[before_x][before_y], ".");
+                            strcpy(chessboard[0][5], "r");
+                            strcpy(chessboard[0][7], ".");
+                            blcwht[after_x][after_y] = 2;
+                            blcwht[before_x][before_y] = 0;
+                            blcwht[0][5]=2;
+                            blcwht[0][7]=0;
+               }
+         }
+   }
+
+
+   else if (((strcmp(chessboard[0][1], ".") ==0 ) && (strcmp(chessboard[0][2], ".")==0 )) && (strcmp(chessboard[0][3],".")==0)) {  // 캐슬링 여부확인
+         if(((before_y - after_y == -2) || (before_y - after_y == 2)) && (after_x == before_x)) {
+               if(after_y == 3) {  // 롱 캐슬링
+                              strcpy(chessboard[after_x][after_y], "k");
+                              strcpy(chessboard[before_x][before_y], ".");
+                              strcpy(chessboard[0][3], "r");
+                               strcpy(chessboard[0][0], ".");
+                               blcwht[after_x][after_y] = 2;
+                               blcwht[before_x][before_y] = 0;
+                               blcwht[0][3]=2;
+                               blcwht[0][0]=0;
+               }
+         }
+   }
+   else
+      printf("이동할 수 없습니다.\n");
+
 }
 
 void queen() {                     // 흰색 퀸 이동코드
