@@ -30,13 +30,14 @@ void white();
 int check();
 int Check();
 	
-int player = 1, x, y, m, n;
-int an_x=0;
-int an_y=0;
-int An_x=0;
+int player = 1, x, y, m, n;  // 플레이어 변수 
+int an_x=0;  //앙파상 실행 시 실행할 좌표 저장 (흰색 말) 
+int an_y=0;  
+int An_x=0;  //앙파상 실행 시 실행할 좌표 저장 (검은색 말)
 int An_y=0;
-char w, b;
-char chessboard[8][8][2]= { 
+char w,b; // 프로모션 시 승격할 말을 저장 
+
+char chessboard[8][8][2]= { 												//체스말 위치 저장 배 열 
                             {"R","N","B","Q","K","B","N","R"},
                             {"P","P","P","P","P","P","P","P"},
                             {".",".",".",".",".",".",".","."},
@@ -46,7 +47,7 @@ char chessboard[8][8][2]= {
                             {"p","p","p","p","p","p","p","p"},
                             {"r","n","b","q","k","b","n","r"}
                             };
-const char ind[8][8][3]={
+const char ind[8][8][3]={													//입력한 좌표를 숫자로 바꾸기 위한 배열 
                         {"A1","A2","A3","A4","A5","A6","A7","A8"},
                         {"B1","B2","B3","B4","B5","B6","B7","B8"},
                         {"C1","C2","C3","C4","C5","C6","C7","C8"},
@@ -56,7 +57,7 @@ const char ind[8][8][3]={
                         {"G1","G2","G3","G4","G5","G6","G7","G8"},
                         {"H1","H2","H3","H4","H5","H6","H7","H8"}
                         };
-int blcwht[8][8]={
+int blcwht[8][8]={													//체스판의 칸 안에 흑, 백, 공백을 구분하는 배열 
 		  {1,1,1,1,1,1,1,1},
 		  {1,1,1,1,1,1,1,1},
 		  {0,0,0,0,0,0,0,0},
@@ -74,10 +75,19 @@ char R[2][2] = {"r", "R"};  //룩 문자열
 char P[2][2] = {"p", "P"};  //폰 문자열
 char E[2] = "."; //비어있는 곳을 나타내는 문자열
 
-char HEIGHT[8] = "ABCDEFGH";
+char HEIGHT[8] = "ABCDEFGH";	//체스 판 행 표시 배열 
 
 char *p_before,*p_after;  // 현재 흑백말 위치와 이동하고 싶은 말의 위치
 int before_x,before_y,after_x,after_y; //좌표를 숫자로 바꾼 변수
+
+/**
+    @ 함수 이름 : main
+    @ 함수 설명 : 메인함수 
+    @ 파라미터 이름 나열 (param1,param2..) : 없음 
+    @ 참조 함수들 : menuDraw(), whowin(), print_chess(), check(), input_loc(), white(), Check(), black(), howtouse()
+    @ exception 예외처리 : 없음 
+    //
+**/
 int main(){
    int keyCode, turn;
    while(1){
@@ -121,12 +131,28 @@ int main(){
    }
 }
 
+/**
+    @ 함수 이름 : menuDraw
+    @ 함수 설명 : 시작 화면에서 선택창 출력 
+    @ 파라미터 이름 나열 (param1,param2..) : 없음 
+    @ 참조 함수들 : 없음 
+    @ exception 예외처리 : 없음 
+    //
+**/
 void menuDraw(){
    printf("  1. 게임 시작\n");
    printf("  2. 조작 방법 안내\n");
    printf("  3. 종료\n"); 
 }
 
+/**
+    @ 함수 이름 : howtouse 
+    @ 함수 설명 : 조작 방법 안내 출력 함수 
+    @ 파라미터 이름 나열 (param1,param2..) :없음 
+    @ 참조 함수들 : getch()
+    @ exception 예외처리 :없음 
+    //
+**/
 void howtouse(){
    system("clear");
          printf("==========조작 방법 안내==========\n");
@@ -146,8 +172,16 @@ void howtouse(){
         }
    
 }
+/**
+    @ 함수 이름 : getch
+    @ 함수 설명 : 키를 눌렀을 때 엔터 없이 입력하는 함수 
+    @ 파라미터 이름 나열 (param1,param2..) : 없음 
+    @ 참조 함수들 : getchar()
+    @ exception 예외처리 : 없음 
+    //
+**/
 
-int getch(void)
+int getch(void) 
 
 {
         int ch;
@@ -171,6 +205,14 @@ int getch(void)
         return ch;
 }
 
+/**
+    @ 함수 이름 : input_loc
+    @ 함수 설명 : 좌표를 입력받고 astoin을 실행한 후 올바른 좌표인지 판별하는 함수 
+    @ 파라미터 이름 나열 (param1,param2..) : x
+    @ 참조 함수들 : astoin(), input_loc() 
+    @ exception 예외처리 : x
+    //
+**/
 void input_loc() {
     printf("좌표 입력 : ");
     scanf("%s %s", &p_before, &p_after);
@@ -186,6 +228,14 @@ void input_loc() {
     
 }
 
+/**
+    @ 함수 이름 : print_chess
+    @ 함수 설명 : 체스판 출력 함수 
+    @ 파라미터 이름 나열 (param1,param2..) : x
+    @ 참조 함수들 : x
+    @ exception 예외처리 : x
+    //
+**/
 void print_chess() {
     printf("\t      1     2     3     4     5     6     7     8\n");
     for (int i = 0; i < 8; i++) {
@@ -204,6 +254,13 @@ void print_chess() {
     printf("\t   -------------------------------------------------\n");
 }
 
+/**
+    @ 함수 이름 : black
+    @ 함수 설명 : 검은 말 이동 함 수
+    @ 참조 함수들 : Rook(), Knight(), Bishop(), Queen(), King(), Pawn()
+    @ exception 예외처리 : x
+    //
+**/
 void black()           //검은말 이동           
 {
         if (strcmp(chessboard[before_x][before_y], "R")==0)
@@ -224,6 +281,15 @@ void black()           //검은말 이동
 	player++;
 	}
 }
+
+/**
+    @ 함수 이름 : white 
+    @ 함수 설명 : 흰 말 이동 함수 
+    @ 파라미터 이름 나열 (param1,param2..): x
+    @ 참조 함수들 :rook(), knight(), bishop(), queen(), king(), pawn()
+    @ exception 예외처리 : x
+    //
+**/
 void white()
 {
         if (strcmp(chessboard[before_x][before_y], "r")==0)
@@ -245,6 +311,13 @@ void white()
 	}
 }
 
+/**
+    @ 함수 이름 : whowin
+    @ 함수 설명 : 두 플레이어의 킹의 유무를 판별하여 승패를 알려주는 함수 
+    @ 참조 함수들 :x
+    @ exception 예외처리: x
+    //
+**/
 void whowin(){
 	int w_cnt,b_cnt;
 	w_cnt=0;
@@ -271,6 +344,13 @@ void whowin(){
 	}
 }
  
+ /**
+    @ 함수 이름 : astoin
+    @ 함수 설명 : 문자+숫자로 된 좌표를 숫자 형태로 바꾸는 함수 
+    @ 참조 함수들 : x
+    @ exception 예외처리 : x
+    //
+**/
 void astoin(){
 	int i,j;
 	for(i=0;i<8;i++){
@@ -291,7 +371,13 @@ void astoin(){
 	}
 }
 
-
+/**
+    @ 함수 이름 : king
+    @ 함수 설명 : 흰색 킹 이동 함 수
+    @ 참조 함수들 : x
+    @ exception 예외처리 : x
+    //
+**/
 
 void king() {                      //흰색 왕 이동코드
    if ( ((before_x - after_x <= 1) && (before_x - after_x >= -1)) && ((before_y - after_y <= 1) && (before_y - after_y >= -1))) {           // 상하좌우 or 대각선 한칸
@@ -338,6 +424,14 @@ void king() {                      //흰색 왕 이동코드
 	player--;
 	}
 }
+
+/**
+    @ 함수 이름 : King 
+    @ 함수 설명 : 검은색 킹 이동 함수 
+    @ 참조 함수들 :x
+    @ exception 예외처리 : x
+    //
+**/
 void King() {                    // 검은색 왕 이동코드
    if (((before_x - after_x <= 1) && (before_x - after_x >= -1)) && ((before_y - after_y <= 1) && (before_y - after_y >= -1))){       // 상하좌우 or 대각선 한칸
               strcpy(chessboard[after_x][after_y], "K");
@@ -384,6 +478,13 @@ void King() {                    // 검은색 왕 이동코드
 
 }
 
+/**
+    @ 함수 이름 : queen
+    @ 함수 설명 : 흰색 퀸 이동 함수 
+    @ 참조 함수들 : x
+    @ exception 예외처리 : x
+    //
+**/
 void queen() {                     // 흰색 퀸 이동코드
 	if ( (((before_x - after_x == 0) && (before_y - after_y != 0)) || ((before_x - after_x != 0) && (before_y - after_y == 0))) ||  ((before_x - after_x) + (before_y - after_y) == 0) || ( ((before_x - after_x) - (before_y - after_y) == 0)) )      {              // 상하좌우대각선
 		int true_ = 0;
@@ -616,6 +717,13 @@ void queen() {                     // 흰색 퀸 이동코드
 				}
 }
 
+/**
+    @ 함수 이름 : Queen
+    @ 함수 설명 : 검은색 퀸 이동 함수 
+    @ 참조 함수들 : x
+    @ exception 예외처리 : x
+    //
+**/
 void Queen() {                      //검은색 퀸 이동코드
 	if ( (((before_x - after_x == 0) && (before_y - after_y != 0)) || ((before_x - after_x != 0) && (before_y - after_y == 0))) ||  ((before_x - after_x) + (before_y - after_y) == 0) || ( ((before_x - after_x) - (before_y - after_y) == 0)) )                  //상하좌우대각선 
 	{
@@ -849,6 +957,13 @@ void Queen() {                      //검은색 퀸 이동코드
 				}
 }
 
+/**
+    @ 함수 이름 : rook 
+    @ 함수 설명 : 흰색 룩 이동 함수 
+    @ 참조 함수들 : x
+    @ exception 예외처리 : x
+    //
+**/
 void rook() {                           // 흰색 룩 이동코드
 	if ( ((before_x - after_x == 0) && (before_y - after_y != 0)) || ((before_x - after_x != 0) && (before_y - after_y == 0)) ){                  // 상하좌우
 		int true_ = 0;
@@ -974,6 +1089,13 @@ void rook() {                           // 흰색 룩 이동코드
 				}
 }
 
+/**
+    @ 함수 이름 : Rook 
+    @ 함수 설명 : 검은색 룩 이동 함수 
+    @ 참조 함수들 : x
+    @ exception 예외처리 : x
+    //
+**/
 void Rook() {                               //검은색 룩 이동코드
 	if ( ((before_x - after_x == 0) && (before_y - after_y != 0)) || ((before_x - after_x != 0) && (before_y - after_y == 0)) ){                // 상하좌우
 		
@@ -1100,6 +1222,13 @@ void Rook() {                               //검은색 룩 이동코드
 				}
 }
 
+/**
+    @ 함수 이름 : bishop
+    @ 함수 설명 : 흰색 비숍 이동 함수 
+    @ 참조 함수들 : x
+    @ exception 예외처리 : x
+    //
+**/
 void bishop() {                           // 흰색 비숍 이동코드
 	if ( ((before_x - after_x) + (before_y - after_y) == 0) || ( ((before_x - after_x) - (before_y - after_y) == 0)) )                 // 대각선
 	{
@@ -1227,6 +1356,13 @@ void bishop() {                           // 흰색 비숍 이동코드
 				}
 }
 
+/**
+    @ 함수 이름 : Bishop
+    @ 함수 설명 : 검은색 비숍 이동 함수 
+    @ 참조 함수들 : x
+    @ exception 예외처리 : x
+    //
+**/
 void Bishop() {                      // 검은색 비숍 이동코드
 	if ( ((before_x - after_x) + (before_y - after_y) == 0) || ( ((before_x - after_x) - (before_y - after_y) == 0)) )  {              // 대각선
 		int true_ = 0;
@@ -1383,6 +1519,13 @@ void Knight() {                                                                 
 				}
 }
 
+/**
+    @ 함수 이름 : pawn
+    @ 함수 설명 : 흰색 폰 이동 함수 
+    @ 참조 함수들 : x
+    @ exception 예외처리 : x
+    //
+**/
 void pawn()             // 흰색 폰 이동코드
 {
 	if (An_x!=0) //앙파상 하는 상황이라면
@@ -1492,6 +1635,13 @@ void pawn()             // 흰색 폰 이동코드
         }
 }
 
+/**
+    @ 함수 이름 : Pawn
+    @ 함수 설명 : 검은색 폰 이동 함수 
+    @ 참조 함수들 : x
+    @ exception 예외처리 : x
+    //
+**/
 void Pawn()             // 검은색 폰 이동코드
 {
         if (an_x!=0) //앙파상 하는 상황이라면
@@ -1616,6 +1766,14 @@ void Pawn()             // 검은색 폰 이동코드
 				}
         }
 }
+
+/**
+    @ 함수 이름 : w_pro
+    @ 함수 설명 : 흰색 프로모션 실행 함수 
+    @ 참조 함수들 : w_pro()
+    @ exception 예외처리 : x
+    //
+**/
 void w_pro() {
 	if (after_x == 0) {
 		printf("q, n, r, b 중 승격할 말을 선택 : ");
@@ -1640,6 +1798,13 @@ void w_pro() {
 	}
 }
 
+/**
+    @ 함수 이름 : b_pro
+    @ 함수 설명 : 흰색 프로모션 실행 함수 
+    @ 참조 함수들 : b_pro()
+    @ exception 예외처리 : x
+    //
+**/
 void b_pro() {
 	if (after_x == 7) {
 		printf("q, n, r, b 중 승격할 말을 선택 : ");
@@ -1659,6 +1824,13 @@ void b_pro() {
 	}
 }
 
+/**
+    @ 함수 이름 : check
+    @ 함수 설명 : 흰색의 체크 판별 함수 
+    @ 참조 함수들 : x
+    @ exception 예외처리 : x
+    //
+**/
 int check()//소문자의 체크 판별
 {
 	int king_x,king_y,check_cnt=0;
@@ -1819,6 +1991,13 @@ int check()//소문자의 체크 판별
 	}
 }
 
+/**
+    @ 함수 이름 : Check
+    @ 함수 설명 : 검은색 체크 판별 함수 
+    @ 참조 함수들 : x
+    @ exception 예외처리 : x
+    //
+**/
 int Check()//대문자의 체크 판별
 {
 	int king_x,king_y,check_cnt=0;
