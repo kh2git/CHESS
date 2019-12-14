@@ -340,13 +340,13 @@ void King() {                    // 검은색 왕 이동코드
    else if ((strcmp(chessboard[0][5], ".") ==0 ) && (strcmp(chessboard[0][6], ".")==0 )) { //캐슬링 여부확인
          if(((before_y - after_y == -2) || (before_y - after_y == 2)) && (after_x == before_x)) { //캐슬링
                if(after_y == 6) {  // 숏 캐슬링
-                            strcpy(chessboard[after_x][after_y], "k");
+                            strcpy(chessboard[after_x][after_y], "K");
                             strcpy(chessboard[before_x][before_y], ".");
-                            strcpy(chessboard[0][5], "r");
+                            strcpy(chessboard[0][5], "R");
                             strcpy(chessboard[0][7], ".");
-                            blcwht[after_x][after_y] = 2;
+                            blcwht[after_x][after_y] = 1;
                             blcwht[before_x][before_y] = 0;
-                            blcwht[0][5]=2;
+                            blcwht[0][5]=1;
                             blcwht[0][7]=0;
                }
          }
@@ -356,13 +356,13 @@ void King() {                    // 검은색 왕 이동코드
    else if (((strcmp(chessboard[0][1], ".") ==0 ) && (strcmp(chessboard[0][2], ".")==0 )) && (strcmp(chessboard[0][3],".")==0)) {  // 캐슬링 여부확인
          if(((before_y - after_y == -2) || (before_y - after_y == 2)) && (after_x == before_x)) {
                if(after_y == 3) {  // 롱 캐슬링
-                              strcpy(chessboard[after_x][after_y], "k");
+                              strcpy(chessboard[after_x][after_y], "K");
                               strcpy(chessboard[before_x][before_y], ".");
-                              strcpy(chessboard[0][3], "r");
+                              strcpy(chessboard[0][3], "R");
                                strcpy(chessboard[0][0], ".");
-                               blcwht[after_x][after_y] = 2;
+                               blcwht[after_x][after_y] = 1;
                                blcwht[before_x][before_y] = 0;
-                               blcwht[0][3]=2;
+                               blcwht[0][3]=1;
                                blcwht[0][0]=0;
                }
          }
