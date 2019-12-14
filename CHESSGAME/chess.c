@@ -326,8 +326,10 @@ void king() {                      //흰색 왕 이동코드
    }
 
    else
-      printf("이동할 수 없습니다.\n");
-
+      {
+	printf("이동할 수 없습니다.\n");
+	player--;
+	}
 }
 void King() {                    // 검은색 왕 이동코드
    if (((before_x - after_x <= 1) && (before_x - after_x >= -1)) && ((before_y - after_y <= 1) && (before_y - after_y >= -1))){       // 상하좌우 or 대각선 한칸
@@ -340,13 +342,13 @@ void King() {                    // 검은색 왕 이동코드
    else if ((strcmp(chessboard[0][5], ".") ==0 ) && (strcmp(chessboard[0][6], ".")==0 )) { //캐슬링 여부확인
          if(((before_y - after_y == -2) || (before_y - after_y == 2)) && (after_x == before_x)) { //캐슬링
                if(after_y == 6) {  // 숏 캐슬링
-                            strcpy(chessboard[after_x][after_y], "K");
+                            strcpy(chessboard[after_x][after_y], "k");
                             strcpy(chessboard[before_x][before_y], ".");
-                            strcpy(chessboard[0][5], "R");
+                            strcpy(chessboard[0][5], "r");
                             strcpy(chessboard[0][7], ".");
-                            blcwht[after_x][after_y] = 1;
+                            blcwht[after_x][after_y] = 2;
                             blcwht[before_x][before_y] = 0;
-                            blcwht[0][5]=1;
+                            blcwht[0][5]=2;
                             blcwht[0][7]=0;
                }
          }
@@ -356,19 +358,22 @@ void King() {                    // 검은색 왕 이동코드
    else if (((strcmp(chessboard[0][1], ".") ==0 ) && (strcmp(chessboard[0][2], ".")==0 )) && (strcmp(chessboard[0][3],".")==0)) {  // 캐슬링 여부확인
          if(((before_y - after_y == -2) || (before_y - after_y == 2)) && (after_x == before_x)) {
                if(after_y == 3) {  // 롱 캐슬링
-                              strcpy(chessboard[after_x][after_y], "K");
+                              strcpy(chessboard[after_x][after_y], "k");
                               strcpy(chessboard[before_x][before_y], ".");
-                              strcpy(chessboard[0][3], "R");
+                              strcpy(chessboard[0][3], "r");
                                strcpy(chessboard[0][0], ".");
-                               blcwht[after_x][after_y] = 1;
+                               blcwht[after_x][after_y] = 2;
                                blcwht[before_x][before_y] = 0;
-                               blcwht[0][3]=1;
+                               blcwht[0][3]=2;
                                blcwht[0][0]=0;
                }
          }
    }
    else
-      printf("이동할 수 없습니다.\n");
+     {
+	printf("이동할 수 없습니다.\n");
+	player++;
+	}
 
 }
 
@@ -397,7 +402,10 @@ void queen() {                     // 흰색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+      				{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         	}
 
         	else if (before_y - after_y > 0 && before_x - after_x == 0) {      // 현재y좌표 - 나중y좌표가 양수이고 직선으로 이동하면
@@ -421,7 +429,10 @@ void queen() {                     // 흰색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-               		printf("이동할 수 없습니다.\n");
+               		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
 		}
 
         	else if (before_x - after_x < 0 && before_y - after_y == 0) {      // 현재x좌표 - 나중x좌표가 음수이고 직선으로 이동하면
@@ -445,7 +456,10 @@ void queen() {                     // 흰색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         	}
 
         	else if (before_x - after_x > 0 && before_y - after_y == 0) {      // 현재x좌표 - 나중x좌표가 양수이고 직선으로 이동하면
@@ -469,7 +483,10 @@ void queen() {                     // 흰색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         	}
 
         	else if (before_y - after_y < 0 && before_x - after_x < 0) {       // 현재y좌표 - 나중y좌표가 음수이고 현재x좌표 - 나중x좌표가 음수, 대각선 이동
@@ -493,7 +510,10 @@ void queen() {                     // 흰색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         	}
 
         	else if (before_y - after_y > 0 && before_x - after_x > 0) {      // 현재y좌표 - 나중y좌표가 양수이고 현재x좌표 - 나중x좌표가 양수, 대각선 이동
@@ -517,7 +537,10 @@ void queen() {                     // 흰색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
            		 }
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         	}
 
         	else if (before_x - after_x < 0 && before_y - after_y >0) {      // 현재x좌표 - 나중x좌표가 음수이고 현재y좌표 - 나중y좌표가 양수, 대각선 이동
@@ -541,7 +564,10 @@ void queen() {                     // 흰색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         	}
 
         	else if (before_x - after_x > 0 && before_y - after_y < 0) {      // 현재x좌표 - 나중x좌표가 양수이고 현재y좌표 - 나중y좌표가 음수, 대각선 이동
@@ -565,13 +591,22 @@ void queen() {                     // 흰색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         	}
         	else
-            		printf("이동할 수 없습니다.\n");
+            		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
 	}
 	else
-		printf("이동할 수 없습니다.\n");
+		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
 }
 
 void Queen() {                      //검은색 퀸 이동코드
@@ -600,7 +635,10 @@ void Queen() {                      //검은색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         	}
 
         	else if (before_y - after_y > 0 && before_x - after_x == 0) {      // 현재y좌표 - 나중y좌표가 양수이고 직선으로 이동하면
@@ -624,7 +662,10 @@ void Queen() {                      //검은색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-               		printf("이동할 수 없습니다.\n");
+               		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
 		}
 
         	else if (before_x - after_x < 0 && before_y - after_y == 0) {      // 현재x좌표 - 나중x좌표가 음수이고 직선으로 이동하면
@@ -648,7 +689,10 @@ void Queen() {                      //검은색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         	}
 
         	else if (before_x - after_x > 0 && before_y - after_y == 0) {      // 현재x좌표 - 나중x좌표가 양수이고 직선으로 이동하면
@@ -672,7 +716,10 @@ void Queen() {                      //검은색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         	}
 
         	else if (before_y - after_y < 0 && before_x - after_x < 0) {       // 현재y좌표 - 나중y좌표가 음수이고 현재x좌표 - 나중x좌표가 음수, 대각선 이동
@@ -696,7 +743,10 @@ void Queen() {                      //검은색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         	}
 
         	else if (before_y - after_y > 0 && before_x - after_x > 0) {      // 현재y좌표 - 나중y좌표가 양수이고 현재x좌표 - 나중x좌표가 양수, 대각선 이동
@@ -720,7 +770,10 @@ void Queen() {                      //검은색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
            		 }
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         	}
 
         	else if (before_x - after_x < 0 && before_y - after_y >0) {      // 현재x좌표 - 나중x좌표가 음수이고 현재y좌표 - 나중y좌표가 양수, 대각선 이동
@@ -744,7 +797,10 @@ void Queen() {                      //검은색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         	}
 
         	else if (before_x - after_x > 0 && before_y - after_y < 0) {      // 현재x좌표 - 나중x좌표가 양수이고 현재y좌표 - 나중y좌표가 음수, 대각선 이동
@@ -768,13 +824,22 @@ void Queen() {                      //검은색 퀸 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         	}
         	else
-            		printf("이동할 수 없습니다.\n");
+            		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
 	}
 	else
-		printf("이동할 수 없습니다.\n");
+		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
 }
 
 void rook() {                           // 흰색 룩 이동코드
@@ -802,7 +867,10 @@ void rook() {                           // 흰색 룩 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         	}
 
         	else if (before_y - after_y > 0) {      // 현재y좌표 - 나중y좌표가 양수이면
@@ -826,7 +894,10 @@ void rook() {                           // 흰색 룩 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         	}
 
         	else if (before_x - after_x < 0) {      // 현재x좌표 - 나중x좌표가 음수이면
@@ -850,7 +921,10 @@ void rook() {                           // 흰색 룩 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
            	 	else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         	}
 
         	else if (before_x - after_x > 0) {      // 현재x좌표 - 나중x좌표가 양수이면
@@ -874,14 +948,23 @@ void rook() {                           // 흰색 룩 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
+				{
 				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         	}
 
         	else
-            		printf("이동할 수 없습니다.\n");
+            		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
 	}
 	else
-		printf("이동할 수 없습니다.\n");
+		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
 }
 
 void Rook() {                               //검은색 룩 이동코드
@@ -910,7 +993,10 @@ void Rook() {                               //검은색 룩 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         	}
 
         	else if (before_y - after_y > 0) {      // 현재y좌표 - 나중y좌표가 양수이면
@@ -934,7 +1020,10 @@ void Rook() {                               //검은색 룩 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         	}
 
         	else if (before_x - after_x < 0) {      // 현재x좌표 - 나중x좌표가 음수이면
@@ -958,7 +1047,10 @@ void Rook() {                               //검은색 룩 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
            	 	else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         	}
 
         	else if (before_x - after_x > 0) {      // 현재x좌표 - 나중x좌표가 양수이면
@@ -982,14 +1074,23 @@ void Rook() {                               //검은색 룩 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
+				{
 				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         	}
 
         	else
-            		printf("이동할 수 없습니다.\n");
+            		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
 	}
 	else
-		printf("이동할 수 없습니다.\n");
+		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
 }
 
 void bishop() {                           // 흰색 비숍 이동코드
@@ -1018,7 +1119,10 @@ void bishop() {                           // 흰색 비숍 이동코드
                		 	blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         	}
 
         	else if (before_y - after_y > 0 && before_x - after_x > 0) {      // 현재y좌표 - 나중y좌표가 양수이면
@@ -1042,7 +1146,10 @@ void bishop() {                           // 흰색 비숍 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         	}
 
         	else if (before_x - after_x < 0 && before_y - after_y >0) {      // 현재x좌표 - 나중x좌표가 음수이면
@@ -1066,7 +1173,10 @@ void bishop() {                           // 흰색 비숍 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         	}
 
         	else if (before_x - after_x > 0 && before_y - after_y < 0) {      // 현재x좌표 - 나중x좌표가 양수이면
@@ -1090,15 +1200,24 @@ void bishop() {                           // 흰색 비숍 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         	}
 		
        		else
-            		printf("이동할 수 없습니다.\n");
+            		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
 	}
 
 	else
-		printf("이동할 수 없습니다.\n");
+		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
 }
 
 void Bishop() {                      // 검은색 비숍 이동코드
@@ -1126,7 +1245,10 @@ void Bishop() {                      // 검은색 비숍 이동코드
                		 	blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         	}
 
         	else if (before_y - after_y > 0 && before_x - after_x > 0) {      // 현재y좌표 - 나중y좌표가 양수이면
@@ -1150,7 +1272,10 @@ void Bishop() {                      // 검은색 비숍 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         	}
 
         	else if (before_x - after_x < 0 && before_y - after_y >0) {      // 현재x좌표 - 나중x좌표가 음수이면
@@ -1174,7 +1299,10 @@ void Bishop() {                      // 검은색 비숍 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         	}
 
         	else if (before_x - after_x > 0 && before_y - after_y < 0) {      // 현재x좌표 - 나중x좌표가 양수이면
@@ -1198,15 +1326,24 @@ void Bishop() {                      // 검은색 비숍 이동코드
                 		blcwht[before_x][before_y] = 0;
             		}
             		else
-                		printf("이동할 수 없습니다.\n");
+                		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         	}
 		
        		else
-            		printf("이동할 수 없습니다.\n");
+            		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
 	}
 	
 	else
-		printf("이동할 수 없습니다.\n");
+		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
 }
 
 void knight() {                                                                       // 흰색 나이트 이동코드  미완성
@@ -1218,7 +1355,10 @@ void knight() {                                                                 
         	blcwht[before_x][before_y]=0;
 	}
 	else
-		printf("이동할 수 없습니다.\n");
+		{
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
 }
  
 void Knight() {                                                                       // 검은색 나이트 이동코드 미완성
@@ -1230,7 +1370,10 @@ void Knight() {                                                                 
         	blcwht[before_x][before_y]=0;
 	}
 	else
-		printf("이동할 수 없습니다.\n");
+		{
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
 }
 
 void pawn()             // 흰색 폰 이동코드
@@ -1275,7 +1418,10 @@ void pawn()             // 흰색 폰 이동코드
                                 }
                     	}
                         else
-                                printf("이동할 수 없습니다. \n");
+                               {
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
                 }
             
                 else if ( (((after_y == before_y-1) && (after_y == before_y+1)) || (after_x == before_x-1)) )           // 공격하는 상황이면
@@ -1288,10 +1434,16 @@ void pawn()             // 흰색 폰 이동코드
                                 w_pro();
                         }
                         else
-                                printf("이동할 수 없습니다. \n");
+                                {
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
                 }
                 else
-                        printf("이동할 수 없습니다. \n");
+                        {
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         }
         else            // 처음 움직이는게 아니라면 (흰 말)
         {
@@ -1305,7 +1457,10 @@ void pawn()             // 흰색 폰 이동코드
                                 w_pro();
                         }
                         else
-                                printf("이동할 수 없습니다. \n");
+                                {
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
                 }
                 else if ( (((after_y == before_y-1) && (after_y == before_y+1)) || (after_x == before_x-1)) )           //공격하는 상황이면
                 {
@@ -1317,10 +1472,16 @@ void pawn()             // 흰색 폰 이동코드
                                 w_pro();
                         }
                         else
-                                printf("이동할 수 없습니다. \n");
+                                {
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
                 }
                 else
-                        printf("이동할 수 없습니다. \n");
+                        {
+				printf("이동할 수 없습니다.\n");
+				player--;
+				}
         }
 }
 
@@ -1367,7 +1528,10 @@ void Pawn()             // 검은색 폰 이동코드
                                 }
                     	}
                         else
-                                printf("이동할 수 없습니다. \n");
+                                {
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
                 }
                 else if ( (after_y == before_y) && (after_x == before_x+2) )            // 공격하지 않고 이동만 하면
                 {
@@ -1379,7 +1543,10 @@ void Pawn()             // 검은색 폰 이동코드
                                 b_pro();
                         }
                         else
-                                printf("이동할 수 없습니다. \n");
+                                {
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
                 }
                 else if ( (((after_y == before_y-1) && (after_y == before_y+1)) || (after_x == before_x+1)) )           // 공격하는 상황이면
                 {
@@ -1391,10 +1558,16 @@ void Pawn()             // 검은색 폰 이동코드
                                 b_pro();
                         }
                         else
-                                printf("이동할 수 없습니다. \n");
+                                {
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
                 }
                 else
-                        printf("이동할 수 없습니다. \n");
+                        {
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         }
         else            // 처음 움직이는게 아니라면 (검은 말)
         {
@@ -1408,7 +1581,10 @@ void Pawn()             // 검은색 폰 이동코드
                                 b_pro();
                         }
                         else
-                                printf("이동할 수 없습니다. \n");
+                                {
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
                 }
                 else if ( (((after_y == before_y-1) && (after_y == before_y+1)) || (after_x == before_x+1)) )           //공격하는 상황이면
                 {
@@ -1420,11 +1596,17 @@ void Pawn()             // 검은색 폰 이동코드
                                 b_pro();
                         }
                         else
-                                printf("이동할 수 없습니다. \n");
+                                {
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
                 }
 
                 else
-                        printf("이동할 수 없습니다. \n");
+                       {
+				printf("이동할 수 없습니다.\n");
+				player++;
+				}
         }
 }
 void w_pro() {
