@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <termio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <stdio.h> // 실행에 꼭 필요한 함수들을 사용하기 위해 사용
+#include <termio.h> // getch()를 시그윈에서 사용하기 위해 사용
+#include <stdlib.h> // system()을 사용하기 위해 사용
+#include <string.h> // 문자열 비교 및 복사를 위해 사용
 
 void print_chess();
 void titleDraw();
