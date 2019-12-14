@@ -96,8 +96,8 @@ int main(){
 		printf("백의 턴입니다.(소문자)\n");
 		check();//소문자진영
 		input_loc();
-		white();
 		player++;
+		white();
 	}
 		 
 	else if (player == 2)
@@ -105,8 +105,8 @@ int main(){
 		printf("흑의 턴입니다.(대문자)\n");
 		Check();//대문자진영
 		input_loc();
-		black();
 		player--;
+		black();
 	}
  }
          break;
@@ -219,6 +219,7 @@ void black()           //검은말 이동
         Pawn();
 	else
 	printf("다시 입력해주세요\n");
+	player--;
 }
 void white()
 {
@@ -236,6 +237,7 @@ void white()
         pawn();
 	else  //잘못 선택하였을
 	printf("다시 입력해주세요\n");
+	player++;
 }
 
 void whowin(){
