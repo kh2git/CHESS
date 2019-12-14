@@ -219,7 +219,7 @@ void black()           //검은말 이동
         Pawn();
 	else
 	printf("다시 입력해주세요\n");
-	player--;
+	player++;
 }
 void white()
 {
@@ -237,7 +237,7 @@ void white()
         pawn();
 	else  //잘못 선택하였을
 	printf("다시 입력해주세요\n");
-	player++;
+	player--;
 }
 
 void whowin(){
