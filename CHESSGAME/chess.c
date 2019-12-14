@@ -218,8 +218,10 @@ void black()           //검은말 이동
         else if (strcmp(chessboard[before_x][before_y], "P")==0)
         Pawn();
 	else
+	{
 	printf("다시 입력해주세요\n");
 	player++;
+	}
 }
 void white()
 {
@@ -236,8 +238,10 @@ void white()
         else if (strcmp(chessboard[before_x][before_y], "p")==0)
         pawn();
 	else  //잘못 선택하였을
+	{
 	printf("다시 입력해주세요\n");
 	player--;
+	}
 }
 
 void whowin(){
